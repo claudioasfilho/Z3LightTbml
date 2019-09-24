@@ -42,6 +42,17 @@
     <property object="LEUART0" propertyId="LEUART.showadvanced.BOOL" value="1"/>
     <property object="PA" propertyId="ABPeripheral.included" value="true"/>
     <property object="PA" propertyId="PA.BSP_PA_VOLTAGE.INT" value="1800"/>
+    <property object="PORTIO" propertyId="portio.gpio.enable.swv" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.pti.enable.dframe" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.pti.enable.dout" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.pti.location.frc_dframeloc" value="6"/>
+    <property object="PORTIO" propertyId="portio.pti.location.frc_doutloc" value="6"/>
+    <property object="PORTIO" propertyId="portio.usart0.enable.cts" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.usart0.enable.rts" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.usart0.enable.rx" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.usart0.enable.tx" value="Enabled"/>
+    <property object="PORTIO" propertyId="portio.usart0.location.usart0_ctsloc" value="30"/>
+    <property object="PORTIO" propertyId="portio.usart0.location.usart0_rtsloc" value="30"/>
     <property object="PTI" propertyId="ABPeripheral.included" value="true"/>
     <property object="PTI" propertyId="PTI.BSP_PTI_DFRAME.PIN" value="PB13"/>
     <property object="PTI" propertyId="PTI.BSP_PTI_DOUT.PIN" value="PB12"/>
@@ -60,6 +71,7 @@
     <property object="SPINCP" propertyId="SPINCP.BSP_SPINCP_NWAKE.PIN" value="PD11"/>
     <property object="SPINCP" propertyId="SPINCP.BSP_SPINCP_USART_PORT.MOD" value="USART2"/>
     <property object="UARTNCP" propertyId="UARTNCP.BSP_UARTNCP_USART_PORT.MOD" value="USART0"/>
+    <property object="USART0" propertyId="ABPeripheral.included" value="true"/>
     <property object="USART0" propertyId="USART.BSP_USART_CTS.PIN" value="PA2"/>
     <property object="USART0" propertyId="USART.BSP_USART_MISO.PIN" value="PA1"/>
     <property object="USART0" propertyId="USART.BSP_USART_MOSI.PIN" value="PA0"/>
