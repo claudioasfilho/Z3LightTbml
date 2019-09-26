@@ -49,6 +49,12 @@ EmberAfStatus emberAfClusterSpecificCommandParse(EmberAfClusterCommand *cmd)
                                cmd->apsFrame->clusterId,
                                cmd->mfgCode)) {
     switch (cmd->apsFrame->clusterId) {
+    case ZCL_ON_OFF_CLUSTER_ID:
+      result = status(false, true, cmd->mfgSpecific);
+      break;
+    case ZCL_LEVEL_CONTROL_CLUSTER_ID:
+      result = status(false, true, cmd->mfgSpecific);
+      break;
     case ZCL_GREEN_POWER_CLUSTER_ID:
       result = emberAfGreenPowerClusterClientCommandParse(cmd);
       break;

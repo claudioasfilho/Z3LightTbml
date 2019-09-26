@@ -866,6 +866,75 @@
 
 /** @} */ // end group ias-zone
 
+/** @addtogroup level-control Cluster Commands: Level Control
+ * @ingroup cli
+ * This group describes the CLI commands for the Level Control cluster. Listed
+ * below is a description of the cluster:<br><br><i> Attributes and commands for
+ * controlling devices that can be set to a level between fully 'On' and fully
+ * 'Off.'</i>
+ * 
+ * @{
+ */
+
+/** @} */ // end group level-control
+
+/** @addtogroup on-off Cluster Commands: On/off
+ * @ingroup cli
+ * This group describes the CLI commands for the On/off cluster. Listed below is
+ * a description of the cluster:<br><br><i> Attributes and commands for
+ * switching devices between 'On' and 'Off' states.</i>
+ * 
+ * @{
+ */
+
+/** @} */ // end group on-off
+
+/** @addtogroup plugin-concentrator Plugin Commands: Concentrator
+ * @ingroup cli
+ * The Concentrator plugin contributes several CLI commands to the application
+ * framework for controlling the sending of MTORRs.
+ * 
+ * @{
+ */
+
+/** @brief <b>plugin concentrator agg </b>
+ *   - <i>(Requires Concentrator Support to be enabled on this device.) Schedules a ZigBee PRO Many To One Route Request (MTORR) to be sent out at next opportunity, which will cause aggregation (many-to-one) routes to be created towards this concentrator.</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_CONCENTRATOR_PLUGIN_CONCENTRATOR_AGG
+
+/** @brief <b>plugin concentrator print-host-table </b>
+ *   - <i>Print the host source route table.</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_CONCENTRATOR_PLUGIN_CONCENTRATOR_PRINT_HOST_TABLE
+
+/** @brief <b>plugin concentrator print-table </b>
+ *   - <i>Print the SOC/NCP source route table.</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_CONCENTRATOR_PLUGIN_CONCENTRATOR_PRINT_TABLE
+
+/** @brief <b>plugin concentrator set-router-behavior [behavior:1] </b>
+ *   - <i>This command allows the user to set the router behavior for this plugin. The argument values come from concentrator-support.h in the enum with members starting with EMBER_AF_PLUGIN_CONCENTRATOR_ROUTER_BEHAVIOR_.</i>
+ *     - behavior - INT8U - The value of a EMBER_AF_PLUGIN_CONCENTRATOR_ROUTER_BEHAVIOR_ enum member.
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_CONCENTRATOR_PLUGIN_CONCENTRATOR_SET_ROUTER_BEHAVIOR
+
+/** @brief <b>plugin concentrator start </b>
+ *   - <i>Starts the periodic broadcast of MTORRs</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_CONCENTRATOR_PLUGIN_CONCENTRATOR_START
+
+/** @brief <b>plugin concentrator status </b>
+ *   - <i>Prints current status and configured parameters of the concentrator</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_CONCENTRATOR_PLUGIN_CONCENTRATOR_STATUS
+
+/** @brief <b>plugin concentrator stop </b>
+ *   - <i>Stops the periodic broadcast of MTORRs</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_CONCENTRATOR_PLUGIN_CONCENTRATOR_STOP
+
+/** @} */ // end group plugin-concentrator
+
 /** @addtogroup plugin-counters Plugin Commands: Counters
  * @ingroup cli
  * This plugin provides APIs and CLI commands for reading and manipulating
@@ -1096,6 +1165,105 @@
 #define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_INTERPAN_PLUGIN_INTERPAN_SET_MSG_TIMEOUT
 
 /** @} */ // end group plugin-interpan
+
+/** @addtogroup plugin-network-creator Plugin Commands: Network Creator
+ * @ingroup cli
+ * Commands pertaining to network creation with the Network Creator plugin.
+ * 
+ * @{
+ */
+
+/** @brief <b>plugin network-creator form [useCentralizedSecurity:1] [panId:2] [radioTxPower:1] [channel:1] </b>
+ *   - <i>Form a network with specified parameters.</i>
+ *     - useCentralizedSecurity - BOOLEAN - Whether or not to form a centralized network. If this value is false, the device will attempt to join a distributed network.
+ *     - panId - INT16U - PanID of the network to be formed
+ *     - radioTxPower - INT8S - Tx power of the network to be formed
+ *     - channel - INT8U - channel of the network to be formed
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_PLUGIN_NETWORK_CREATOR_FORM
+
+/** @brief <b>plugin network-creator mask add [mask:1] [channel:4] </b>
+ *   - <i>Add a channel to the channel mask of choice.</i>
+ *     - mask - INT8U - The mask of choice to which to add the channel. Entering an argument of '1' will choose the primary channel mask. Any other argument will choose the secondary channel mask.
+ *     - channel - INT32U - The channel to add to the channel mask.
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_PLUGIN_NETWORK_CREATOR_MASK_ADD
+
+/** @brief <b>plugin network-creator mask set [mask:1] [newChannelMask:4] </b>
+ *   - <i>Set a channel mask.</i>
+ *     - mask - INT8U - The mask of choice to set. Entering an argument of '1' will choose the primary channel mask. Any other argument will choose the secondary channel mask.
+ *     - newChannelMask - INT32U - The bit mask to which to set the chosen channel mask.
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_PLUGIN_NETWORK_CREATOR_MASK_SET
+
+/** @brief <b>plugin network-creator mask subtract [mask:1] [channel:4] </b>
+ *   - <i>Subtract a channel from the channel mask of choice.</i>
+ *     - mask - INT8U - The mask of choice from which to subtract the channel. Entering an argument of '1' will choose the primary channel mask. Any other argument will choose the secondary channel mask.
+ *     - channel - INT32U - The channel to subtract from the channel mask.
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_PLUGIN_NETWORK_CREATOR_MASK_SUBTRACT
+
+/** @brief <b>plugin network-creator start [useCentralizedSecurity:1] </b>
+ *   - <i>Starts the network formation process.</i>
+ *     - useCentralizedSecurity - BOOLEAN - Whether or not to form a centralized network. If this value is false, the device will attempt to join a distributed network.
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_PLUGIN_NETWORK_CREATOR_START
+
+/** @brief <b>plugin network-creator status </b>
+ *   - <i>Print the status of the network-creator plugin.</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_PLUGIN_NETWORK_CREATOR_STATUS
+
+/** @brief <b>plugin network-creator stop </b>
+ *   - <i>Stops the network formation process.</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_PLUGIN_NETWORK_CREATOR_STOP
+
+/** @} */ // end group plugin-network-creator
+
+/** @addtogroup plugin-network-creator-security Plugin Commands: Network Creator Security
+ * @ingroup cli
+ * Commands pertaining to network creation with the Network Creator plugin.
+ * 
+ * @{
+ */
+
+/** @brief <b>plugin network-creator-security clear-joining-link-keys </b>
+ *   - <i>Clear all of the joining link keys stored in the stack.</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_SECURITY_PLUGIN_NETWORK_CREATOR_SECURITY_CLEAR_JOINING_LINK_KEYS
+
+/** @brief <b>plugin network-creator-security close-network </b>
+ *   - <i>Close the network for joining.</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_SECURITY_PLUGIN_NETWORK_CREATOR_SECURITY_CLOSE_NETWORK
+
+/** @brief <b>plugin network-creator-security open-network </b>
+ *   - <i>Open the network for joining.</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_SECURITY_PLUGIN_NETWORK_CREATOR_SECURITY_OPEN_NETWORK
+
+/** @brief <b>plugin network-creator-security open-with-key [eui64:8] [joiningLinkKey:-1] </b>
+ *   - <i>Open the network that would only allow the node with specified EUI and link key pair to join.</i>
+ *     - eui64 - IEEE_ADDRESS - The EUI64 of the joining device.
+ *     - joiningLinkKey - OCTET_STRING - The link key that the joining device will use to enter the network.
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_SECURITY_PLUGIN_NETWORK_CREATOR_SECURITY_OPEN_WITH_KEY
+
+/** @brief <b>plugin network-creator-security set-distributed-key [joiningDistributedKey:-1] </b>
+ *   - <i>Set the TC Link key for a distributed network</i>
+ *     - joiningDistributedKey - OCTET_STRING - The preconfigured distributed key that the joining device will use to enter the network.
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_SECURITY_PLUGIN_NETWORK_CREATOR_SECURITY_SET_DISTRIBUTED_KEY
+
+/** @brief <b>plugin network-creator-security set-joining-link-key [eui64:8] [joiningLinkKey:-1] </b>
+ *   - <i>Set the link key that a specific joining device will use when joining the network. This command can be also used to add install code derived link keys. If all FF's are entered for the EUI64 for the joining device, then this link key will be used for all joining devices without a joining key entry.</i>
+ *     - eui64 - IEEE_ADDRESS - The EUI64 of the joining device.
+ *     - joiningLinkKey - OCTET_STRING - The link key that the joining device will use to enter the network.
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_PLUGIN_NETWORK_CREATOR_SECURITY_PLUGIN_NETWORK_CREATOR_SECURITY_SET_JOINING_LINK_KEY
+
+/** @} */ // end group plugin-network-creator-security
 
 /** @addtogroup plugin-network-steering Plugin Commands: Network Steering
  * @ingroup cli
@@ -1360,6 +1528,146 @@
 
 /** @} */ // end group ias-zone
 
+/** @addtogroup level-control Cluster Commands: Level Control
+ * @ingroup cli
+ * This group describes the CLI commands for the Level Control cluster. Listed
+ * below is a description of the cluster:<br><br><i> Attributes and commands for
+ * controlling devices that can be set to a level between fully 'On' and fully
+ * 'Off.'</i>
+ * 
+ * @{
+ */
+
+/** @brief <b>zcl level-control mv-to-level [level:1] [transitionTime:2] [optionMask:1] [optionOverride:1] </b>
+ *   - <i>Command description for MoveToLevel</i>
+ *     - level - INT8U
+ *     - transitionTime - INT16U
+ *     - optionMask - BITMAP8
+ *     - optionOverride - BITMAP8
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_LEVEL_CONTROL_MV_TO_LEVEL
+
+/** @brief <b>zcl level-control move [moveMode:1] [rate:1] [optionMask:1] [optionOverride:1] </b>
+ *   - <i>Command description for Move</i>
+ *     - moveMode - MoveMode [ENUM8]
+ *     - rate - INT8U
+ *     - optionMask - BITMAP8
+ *     - optionOverride - BITMAP8
+ * @sa 
+ * EmberAfMoveMode
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_LEVEL_CONTROL_MOVE
+
+/** @brief <b>zcl level-control step [stepMode:1] [stepSize:1] [transitionTime:2] [optionMask:1] [optionOverride:1] </b>
+ *   - <i>Command description for Step</i>
+ *     - stepMode - StepMode [ENUM8]
+ *     - stepSize - INT8U
+ *     - transitionTime - INT16U
+ *     - optionMask - BITMAP8
+ *     - optionOverride - BITMAP8
+ * @sa 
+ * EmberAfStepMode
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_LEVEL_CONTROL_STEP
+
+/** @brief <b>zcl level-control stop [optionMask:1] [optionOverride:1] </b>
+ *   - <i>Command description for Stop</i>
+ *     - optionMask - BITMAP8
+ *     - optionOverride - BITMAP8
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_LEVEL_CONTROL_STOP
+
+/** @brief <b>zcl level-control o-mv-to-level [level:1] [transitionTime:2] </b>
+ *   - <i>Command description for MoveToLevelWithOnOff</i>
+ *     - level - INT8U
+ *     - transitionTime - INT16U
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_LEVEL_CONTROL_O_MV_TO_LEVEL
+
+/** @brief <b>zcl level-control o-move [moveMode:1] [rate:1] </b>
+ *   - <i>Command description for MoveWithOnOff</i>
+ *     - moveMode - MoveMode [ENUM8]
+ *     - rate - INT8U
+ * @sa 
+ * EmberAfMoveMode
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_LEVEL_CONTROL_O_MOVE
+
+/** @brief <b>zcl level-control o-step [stepMode:1] [stepSize:1] [transitionTime:2] </b>
+ *   - <i>Command description for StepWithOnOff</i>
+ *     - stepMode - StepMode [ENUM8]
+ *     - stepSize - INT8U
+ *     - transitionTime - INT16U
+ * @sa 
+ * EmberAfStepMode
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_LEVEL_CONTROL_O_STEP
+
+/** @brief <b>zcl level-control o-stop </b>
+ *   - <i>Command description for StopWithOnOff</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_LEVEL_CONTROL_O_STOP
+
+/** @} */ // end group level-control
+
+/** @addtogroup on-off Cluster Commands: On/off
+ * @ingroup cli
+ * This group describes the CLI commands for the On/off cluster. Listed below is
+ * a description of the cluster:<br><br><i> Attributes and commands for
+ * switching devices between 'On' and 'Off' states.</i>
+ * 
+ * @{
+ */
+
+/** @brief <b>zcl on-off off </b>
+ *   - <i>Command description for Off</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_ON/OFF_OFF
+
+/** @brief <b>zcl on-off on </b>
+ *   - <i>Command description for On</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_ON/OFF_ON
+
+/** @brief <b>zcl on-off toggle </b>
+ *   - <i>Command description for Toggle</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_ON/OFF_TOGGLE
+
+/** @brief <b>zcl on-off offeffect [effectId:1] [effectVariant:1] </b>
+ *   - <i>Command description for OffWithEffect</i>
+ *     - effectId - OnOffEffectIdentifier [ENUM8]
+ *     - effectVariant - ENUM8
+ * @sa 
+ * EmberAfOnOffEffectIdentifier
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_ON/OFF_OFFEFFECT
+
+/** @brief <b>zcl on-off onrecall </b>
+ *   - <i>Command description for OnWithRecallGlobalScene</i>
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_ON/OFF_ONRECALL
+
+/** @brief <b>zcl on-off ontimedoff [onOffControl:1] [onTime:2] [offWaitTime:2] </b>
+ *   - <i>Command description for OnWithTimedOff</i>
+ *     - onOffControl - OnOffControl [BITMAP8]
+ *     - onTime - INT16U
+ *     - offWaitTime - INT16U
+ */
+#define EMBER_AF_DOXYGEN_CLI_COMMAND_ON/OFF_ONTIMEDOFF
+
+/** @} */ // end group on-off
+
+/** @addtogroup plugin-concentrator Plugin Commands: Concentrator
+ * @ingroup cli
+ * The Concentrator plugin contributes several CLI commands to the application
+ * framework for controlling the sending of MTORRs.
+ * 
+ * @{
+ */
+
+/** @} */ // end group plugin-concentrator
+
 /** @addtogroup plugin-counters Plugin Commands: Counters
  * @ingroup cli
  * This plugin provides APIs and CLI commands for reading and manipulating
@@ -1430,6 +1738,24 @@
  */
 
 /** @} */ // end group plugin-interpan
+
+/** @addtogroup plugin-network-creator Plugin Commands: Network Creator
+ * @ingroup cli
+ * Commands pertaining to network creation with the Network Creator plugin.
+ * 
+ * @{
+ */
+
+/** @} */ // end group plugin-network-creator
+
+/** @addtogroup plugin-network-creator-security Plugin Commands: Network Creator Security
+ * @ingroup cli
+ * Commands pertaining to network creation with the Network Creator plugin.
+ * 
+ * @{
+ */
+
+/** @} */ // end group plugin-network-creator-security
 
 /** @addtogroup plugin-network-steering Plugin Commands: Network Steering
  * @ingroup cli

@@ -24,6 +24,7 @@ basic \
 ccm-encryption \
 coexistence-stub/EFR32 \
 color-control-server \
+concentrator \
 counters \
 debug-basic-library/EFR32 \
 debug-jtag/EFR32 \
@@ -43,6 +44,8 @@ identify \
 interpan \
 level-control \
 mbedtls/EFR32 \
+network-creator \
+network-creator-security \
 network-steering \
 on-off \
 reporting \

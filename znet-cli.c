@@ -448,6 +448,31 @@ static EmberCommandEntry emberCommandOptionTable[] = {
   emberCommandEntrySubMenu("security", emberCommandOptionSecurityTable, ""),
   emberCommandEntryTerminator(),
 };
+void emberAfPluginConcentratorAggregationCommand(void);
+void emberAfPluginConcentratorPrintHostSourceRouteTable(void);
+void emberAfPluginConcentratorPrintSourceRouteTable(void);
+void emberAfPluginConcentratorSetRouterBehaviorCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginConcentratorSetRouterBehaviorCommandArguments[] = {
+  "The value of a EMBER_AF_PLUGIN_CONCENTRATOR_ROUTER_BEHAVIOR_ enum memb ...",
+  NULL
+};
+#endif
+
+
+void emberAfPluginConcentratorStartDiscovery(void);
+void emberAfPluginConcentratorStatus(void);
+void emberAfPluginConcentratorStopDiscovery(void);
+static EmberCommandEntry emberCommandPluginConcentratorTable[] = {
+  emberCommandEntryActionWithDetails("agg", emberAfPluginConcentratorAggregationCommand, "", "(Requires Concentrator Support to be enabled on this devic ...", NULL),
+  emberCommandEntryActionWithDetails("print-host-table", emberAfPluginConcentratorPrintHostSourceRouteTable, "", "Print the host source route table.", NULL),
+  emberCommandEntryActionWithDetails("print-table", emberAfPluginConcentratorPrintSourceRouteTable, "", "Print the SOC/NCP source route table.", NULL),
+  emberCommandEntryActionWithDetails("set-router-behavior", emberAfPluginConcentratorSetRouterBehaviorCommand, "u", "This command allows the user to set the router behavior for this plugi ...", pluginConcentratorSetRouterBehaviorCommandArguments),
+  emberCommandEntryActionWithDetails("start", emberAfPluginConcentratorStartDiscovery, "", "Starts the periodic broadcast of MTORRs", NULL),
+  emberCommandEntryActionWithDetails("status", emberAfPluginConcentratorStatus, "", "Prints current status and configured parameters of the concentrator", NULL),
+  emberCommandEntryActionWithDetails("stop", emberAfPluginConcentratorStopDiscovery, "", "Stops the periodic broadcast of MTORRs", NULL),
+  emberCommandEntryTerminator(),
+};
 void emberAfPluginCounterPrintCounterTypeCommand(void);
 #if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
 static const char * const pluginCounterPrintCounterTypeCommandArguments[] = {
@@ -633,6 +658,114 @@ static EmberCommandEntry emberCommandPluginInterpanTable[] = {
   emberCommandEntryActionWithDetails("enable", emAfInterpanEnableCommand, "", "Enables inter-PAN globally.", NULL),
   emberCommandEntryActionWithDetails("fragment-test", emAfInterpanFragmentTestCommand, "vbvv", "Sends a message of specified length of random values to target device  ...", pluginInterpanFragmentTestCommandArguments),
   emberCommandEntryActionWithDetails("set-msg-timeout", emAfInterpanSetMessageTimeoutCommand, "u", "Sets the timeout for inter-PAN messages sent and received.", pluginInterpanSetMsgTimeoutCommandArguments),
+  emberCommandEntryTerminator(),
+};
+void emberAfPluginNetworkCreatorFormCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorFormCommandArguments[] = {
+  "Whether or not to form a centralized networ ...",
+  "PanID of the network to be formed",
+  "Tx power of the network to be formed",
+  "channel of the network to be formed",
+  NULL
+};
+#endif
+
+
+void emberAfPluginNetworkCreatorChannelMaskCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorMaskAddCommandArguments[] = {
+  "The mask of choice to which to add the channe ...",
+  "The channel to add to the channel mask.",
+  NULL
+};
+#endif
+
+
+void emberAfPluginNetworkCreatorChannelMaskCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorMaskSetCommandArguments[] = {
+  "The mask of choice to se ...",
+  "The bit mask to which to set the chosen channel mask.",
+  NULL
+};
+#endif
+
+
+void emberAfPluginNetworkCreatorChannelMaskCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorMaskSubtractCommandArguments[] = {
+  "The mask of choice from which to subtract the channe ...",
+  "The channel to subtract from the channel mask.",
+  NULL
+};
+#endif
+
+
+static EmberCommandEntry emberCommandPluginNetworkCreatorMaskTable[] = {
+  emberCommandEntryActionWithDetails("add", emberAfPluginNetworkCreatorChannelMaskCommand, "uw", "Add a channel to the channel mask of choice.", pluginNetworkCreatorMaskAddCommandArguments),
+  emberCommandEntryActionWithDetails("set", emberAfPluginNetworkCreatorChannelMaskCommand, "uw", "Set a channel mask.", pluginNetworkCreatorMaskSetCommandArguments),
+  emberCommandEntryActionWithDetails("subtract", emberAfPluginNetworkCreatorChannelMaskCommand, "uw", "Subtract a channel from the channel mask of choice.", pluginNetworkCreatorMaskSubtractCommandArguments),
+  emberCommandEntryTerminator(),
+};
+void emberAfPluginNetworkCreatorStartCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorStartCommandArguments[] = {
+  "Whether or not to form a centralized networ ...",
+  NULL
+};
+#endif
+
+
+void emberAfPluginNetworkCreatorStatusCommand(void);
+void emberAfPluginNetworkCreatorStop(void);
+static EmberCommandEntry emberCommandPluginNetworkCreatorTable[] = {
+  emberCommandEntryActionWithDetails("form", emberAfPluginNetworkCreatorFormCommand, "uvsu", "Form a network with specified parameters.", pluginNetworkCreatorFormCommandArguments),
+  emberCommandEntrySubMenu("mask", emberCommandPluginNetworkCreatorMaskTable, ""),
+  emberCommandEntryActionWithDetails("start", emberAfPluginNetworkCreatorStartCommand, "u", "Starts the network formation process.", pluginNetworkCreatorStartCommandArguments),
+  emberCommandEntryActionWithDetails("status", emberAfPluginNetworkCreatorStatusCommand, "", "Print the status of the network-creator plugin.", NULL),
+  emberCommandEntryActionWithDetails("stop", emberAfPluginNetworkCreatorStop, "", "Stops the network formation process.", NULL),
+  emberCommandEntryTerminator(),
+};
+void emAfPluginNetworkCreatorSecurityClearJoiningLinkKeyCommand(void);
+void emAfPluginNetworkCreatorSecurityOpenOrCloseNetworkCommand(void);
+void emAfPluginNetworkCreatorSecurityOpenOrCloseNetworkCommand(void);
+void emAfPluginNetworkCreatorSecurityOpenNetworkWithKeyCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorSecurityOpenWithKeyCommandArguments[] = {
+  "The EUI64 of the joining device.",
+  "The link key that the joining device will use to enter the network.",
+  NULL
+};
+#endif
+
+
+void emAfPluginNetworkCreatorSecurityConfigureDistributedKey(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorSecuritySetDistributedKeyCommandArguments[] = {
+  "The preconfigured distributed key that the joining device will use to  ...",
+  NULL
+};
+#endif
+
+
+void emAfPluginNetworkCreatorSecuritySetJoiningLinkKeyCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorSecuritySetJoiningLinkKeyCommandArguments[] = {
+  "The EUI64 of the joining device.",
+  "The link key that the joining device will use to enter the network.",
+  NULL
+};
+#endif
+
+
+static EmberCommandEntry emberCommandPluginNetworkCreatorSecurityTable[] = {
+  emberCommandEntryActionWithDetails("clear-joining-link-keys", emAfPluginNetworkCreatorSecurityClearJoiningLinkKeyCommand, "", "Clear all of the joining link keys stored in the stack.", NULL),
+  emberCommandEntryActionWithDetails("close-network", emAfPluginNetworkCreatorSecurityOpenOrCloseNetworkCommand, "", "Close the network for joining.", NULL),
+  emberCommandEntryActionWithDetails("open-network", emAfPluginNetworkCreatorSecurityOpenOrCloseNetworkCommand, "", "Open the network for joining.", NULL),
+  emberCommandEntryActionWithDetails("open-with-key", emAfPluginNetworkCreatorSecurityOpenNetworkWithKeyCommand, "bb", "Open the network that would only allow the node with specified EUI and ...", pluginNetworkCreatorSecurityOpenWithKeyCommandArguments),
+  emberCommandEntryActionWithDetails("set-distributed-key", emAfPluginNetworkCreatorSecurityConfigureDistributedKey, "b", "Set the TC Link key for a distributed network", pluginNetworkCreatorSecuritySetDistributedKeyCommandArguments),
+  emberCommandEntryActionWithDetails("set-joining-link-key", emAfPluginNetworkCreatorSecuritySetJoiningLinkKeyCommand, "bb", "Set the link key that a specific joining device will use when joining  ...", pluginNetworkCreatorSecuritySetJoiningLinkKeyCommandArguments),
   emberCommandEntryTerminator(),
 };
 void emberAfPluginNetworkSteeringChannelAddOrSubtractCommand(void);
@@ -892,6 +1025,7 @@ static EmberCommandEntry emberCommandPluginZllCommissioningTable[] = {
   emberCommandEntryTerminator(),
 };
 static EmberCommandEntry emberCommandPluginTable[] = {
+  emberCommandEntrySubMenu("concentrator", emberCommandPluginConcentratorTable, ""),
   emberCommandEntrySubMenu("counter", emberCommandPluginCounterTable, ""),
   emberCommandEntrySubMenu("counters", emberCommandPluginCountersTable, ""),
   emberCommandEntrySubMenu("find-and-bind", emberCommandPluginFindAndBindTable, ""),
@@ -900,6 +1034,8 @@ static EmberCommandEntry emberCommandPluginTable[] = {
   emberCommandEntrySubMenu("ias-zone-client", emberCommandPluginIasZoneClientTable, ""),
   emberCommandEntrySubMenu("identify", emberCommandPluginIdentifyTable, ""),
   emberCommandEntrySubMenu("interpan", emberCommandPluginInterpanTable, ""),
+  emberCommandEntrySubMenu("network-creator", emberCommandPluginNetworkCreatorTable, ""),
+  emberCommandEntrySubMenu("network-creator-security", emberCommandPluginNetworkCreatorSecurityTable, ""),
   emberCommandEntrySubMenu("network-steering", emberCommandPluginNetworkSteeringTable, ""),
   emberCommandEntrySubMenu("reporting", emberCommandPluginReportingTable, ""),
   emberCommandEntrySubMenu("scenes", emberCommandPluginScenesTable, ""),
@@ -1217,6 +1353,128 @@ static EmberCommandEntry emberCommandZclIdentifyTable[] = {
   emberCommandEntryActionWithDetails("on", zclIdentifyOnOffCommand, "uv", "Writes the IdentifyTime attribute", zclIdentifyOnCommandArguments),
   emberCommandEntryTerminator(),
 };
+static void zclLevelControlMoveCommand(void) {
+  zclSimpleClientCommand( ZCL_LEVEL_CONTROL_CLUSTER_ID,
+                          ZCL_MOVE_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclLevelControlMoveCommandArguments[] = {
+  "move mode",
+  "rate",
+  "option mask",
+  "option override",
+  NULL
+};
+#endif
+
+
+static void zclLevelControlMvToLevelCommand(void) {
+  zclSimpleClientCommand( ZCL_LEVEL_CONTROL_CLUSTER_ID,
+                          ZCL_MOVE_TO_LEVEL_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclLevelControlMvToLevelCommandArguments[] = {
+  "level",
+  "transition time",
+  "option mask",
+  "option override",
+  NULL
+};
+#endif
+
+
+static void zclLevelControlOMoveCommand(void) {
+  zclSimpleClientCommand( ZCL_LEVEL_CONTROL_CLUSTER_ID,
+                          ZCL_MOVE_WITH_ON_OFF_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclLevelControlOMoveCommandArguments[] = {
+  "move mode",
+  "rate",
+  NULL
+};
+#endif
+
+
+static void zclLevelControlOMvToLevelCommand(void) {
+  zclSimpleClientCommand( ZCL_LEVEL_CONTROL_CLUSTER_ID,
+                          ZCL_MOVE_TO_LEVEL_WITH_ON_OFF_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclLevelControlOMvToLevelCommandArguments[] = {
+  "level",
+  "transition time",
+  NULL
+};
+#endif
+
+
+static void zclLevelControlOStepCommand(void) {
+  zclSimpleClientCommand( ZCL_LEVEL_CONTROL_CLUSTER_ID,
+                          ZCL_STEP_WITH_ON_OFF_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclLevelControlOStepCommandArguments[] = {
+  "step mode",
+  "step size",
+  "transition time",
+  NULL
+};
+#endif
+
+
+static void zclLevelControlOStopCommand(void) {
+  zclSimpleClientCommand( ZCL_LEVEL_CONTROL_CLUSTER_ID,
+                          ZCL_STOP_WITH_ON_OFF_COMMAND_ID);
+}
+
+static void zclLevelControlStepCommand(void) {
+  zclSimpleClientCommand( ZCL_LEVEL_CONTROL_CLUSTER_ID,
+                          ZCL_STEP_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclLevelControlStepCommandArguments[] = {
+  "step mode",
+  "step size",
+  "transition time",
+  "option mask",
+  "option override",
+  NULL
+};
+#endif
+
+
+static void zclLevelControlStopCommand(void) {
+  zclSimpleClientCommand( ZCL_LEVEL_CONTROL_CLUSTER_ID,
+                          ZCL_STOP_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclLevelControlStopCommandArguments[] = {
+  "option mask",
+  "option override",
+  NULL
+};
+#endif
+
+
+static EmberCommandEntry emberCommandZclLevelControlTable[] = {
+  emberCommandEntryActionWithDetails("move", zclLevelControlMoveCommand, "uu!uu", "Command description for Move", zclLevelControlMoveCommandArguments),
+  emberCommandEntryActionWithDetails("mv-to-level", zclLevelControlMvToLevelCommand, "uv!uu", "Command description for MoveToLevel", zclLevelControlMvToLevelCommandArguments),
+  emberCommandEntryActionWithDetails("o-move", zclLevelControlOMoveCommand, "uu", "Command description for MoveWithOnOff", zclLevelControlOMoveCommandArguments),
+  emberCommandEntryActionWithDetails("o-mv-to-level", zclLevelControlOMvToLevelCommand, "uv", "Command description for MoveToLevelWithOnOff", zclLevelControlOMvToLevelCommandArguments),
+  emberCommandEntryActionWithDetails("o-step", zclLevelControlOStepCommand, "uuv", "Command description for StepWithOnOff", zclLevelControlOStepCommandArguments),
+  emberCommandEntryActionWithDetails("o-stop", zclLevelControlOStopCommand, "", "Command description for StopWithOnOff", NULL),
+  emberCommandEntryActionWithDetails("step", zclLevelControlStepCommand, "uuv!uu", "Command description for Step", zclLevelControlStepCommandArguments),
+  emberCommandEntryActionWithDetails("stop", zclLevelControlStopCommand, "!uu", "Command description for Stop", zclLevelControlStopCommandArguments),
+  emberCommandEntryTerminator(),
+};
 void zclMfgCodeCommand(void);
 #if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
 static const char * const zclMfgCodeCommandArguments[] = {
@@ -1226,6 +1484,64 @@ static const char * const zclMfgCodeCommandArguments[] = {
 #endif
 
 
+static void zclOnOffOffCommand(void) {
+  zclSimpleClientCommand( ZCL_ON_OFF_CLUSTER_ID,
+                          ZCL_OFF_COMMAND_ID);
+}
+
+static void zclOnOffOffeffectCommand(void) {
+  zclSimpleClientCommand( ZCL_ON_OFF_CLUSTER_ID,
+                          ZCL_OFF_WITH_EFFECT_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclOnOffOffeffectCommandArguments[] = {
+  "effect id",
+  "effect variant",
+  NULL
+};
+#endif
+
+
+static void zclOnOffOnCommand(void) {
+  zclSimpleClientCommand( ZCL_ON_OFF_CLUSTER_ID,
+                          ZCL_ON_COMMAND_ID);
+}
+
+static void zclOnOffOnrecallCommand(void) {
+  zclSimpleClientCommand( ZCL_ON_OFF_CLUSTER_ID,
+                          ZCL_ON_WITH_RECALL_GLOBAL_SCENE_COMMAND_ID);
+}
+
+static void zclOnOffOntimedoffCommand(void) {
+  zclSimpleClientCommand( ZCL_ON_OFF_CLUSTER_ID,
+                          ZCL_ON_WITH_TIMED_OFF_COMMAND_ID);
+}
+
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const zclOnOffOntimedoffCommandArguments[] = {
+  "on off control",
+  "on time",
+  "off wait time",
+  NULL
+};
+#endif
+
+
+static void zclOnOffToggleCommand(void) {
+  zclSimpleClientCommand( ZCL_ON_OFF_CLUSTER_ID,
+                          ZCL_TOGGLE_COMMAND_ID);
+}
+
+static EmberCommandEntry emberCommandZclOnOffTable[] = {
+  emberCommandEntryActionWithDetails("off", zclOnOffOffCommand, "", "Command description for Off", NULL),
+  emberCommandEntryActionWithDetails("offeffect", zclOnOffOffeffectCommand, "uu", "Command description for OffWithEffect", zclOnOffOffeffectCommandArguments),
+  emberCommandEntryActionWithDetails("on", zclOnOffOnCommand, "", "Command description for On", NULL),
+  emberCommandEntryActionWithDetails("onrecall", zclOnOffOnrecallCommand, "", "Command description for OnWithRecallGlobalScene", NULL),
+  emberCommandEntryActionWithDetails("ontimedoff", zclOnOffOntimedoffCommand, "uvv", "Command description for OnWithTimedOff", zclOnOffOntimedoffCommandArguments),
+  emberCommandEntryActionWithDetails("toggle", zclOnOffToggleCommand, "", "Command description for Toggle", NULL),
+  emberCommandEntryTerminator(),
+};
 void zclTestResponseOffCommand(void);
 void zclTestResponseOnCommand(void);
 static EmberCommandEntry emberCommandZclTestResponseTable[] = {
@@ -1268,7 +1584,9 @@ static EmberCommandEntry emberCommandZclTable[] = {
   emberCommandEntrySubMenu("basic", emberCommandZclBasicTable, ""),
   emberCommandEntrySubMenu("global", emberCommandZclGlobalTable, ""),
   emberCommandEntrySubMenu("identify", emberCommandZclIdentifyTable, ""),
+  emberCommandEntrySubMenu("level-control", emberCommandZclLevelControlTable, ""),
   emberCommandEntryActionWithDetails("mfg-code", zclMfgCodeCommand, "v", "Sets the two byte manufacturer specific identifier to use for the next ...", zclMfgCodeCommandArguments),
+  emberCommandEntrySubMenu("on-off", emberCommandZclOnOffTable, ""),
   emberCommandEntrySubMenu("test", emberCommandZclTestTable, ""),
   emberCommandEntryActionWithDetails("time", zclTimeCommand, "w", "Cli command to call emberAfSetTime function documented in af.h", zclTimeCommandArguments),
   emberCommandEntryActionWithDetails("use-next-sequence", zclUseNextSequenceCommand, "u", "Sets the flag to use the incremented sequence number from the framewor ...", zclUseNextSequenceCommandArguments),

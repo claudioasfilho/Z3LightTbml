@@ -126,6 +126,7 @@ const EmberAfGenericClusterFunction emberAfFuncArrayIdentifyClusterServer[] = { 
 const EmberAfGenericClusterFunction emberAfFuncArrayGroupsClusterServer[] = { (EmberAfGenericClusterFunction)emberAfGroupsClusterServerInitCallback}; \
 const EmberAfGenericClusterFunction emberAfFuncArrayScenesClusterServer[] = { (EmberAfGenericClusterFunction)emberAfScenesClusterServerInitCallback}; \
 const EmberAfGenericClusterFunction emberAfFuncArrayOnOffClusterServer[] = { (EmberAfGenericClusterFunction)emberAfOnOffClusterServerInitCallback,(EmberAfGenericClusterFunction)emberAfOnOffClusterServerAttributeChangedCallback}; \
+const EmberAfGenericClusterFunction emberAfFuncArrayIasZoneClusterClient[] = { (EmberAfGenericClusterFunction)emberAfIasZoneClusterClientInitCallback}; \
 const EmberAfGenericClusterFunction emberAfFuncArrayLevelControlClusterServer[] = { (EmberAfGenericClusterFunction)emberAfLevelControlClusterServerInitCallback}; \
 const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] = { (EmberAfGenericClusterFunction)emberAfColorControlClusterServerInitCallback}; \
 
@@ -138,7 +139,7 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
     { 0x0005, (EmberAfAttributeMetadata*)&(generatedAttributes[18]), 6, 8, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayScenesClusterServer, },    \
     { 0x0006, (EmberAfAttributeMetadata*)&(generatedAttributes[24]), 6, 9, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION| CLUSTER_MASK_ATTRIBUTE_CHANGED_FUNCTION), emberAfFuncArrayOnOffClusterServer, },    \
     { 0x0406, (EmberAfAttributeMetadata*)&(generatedAttributes[81]), 2, 3, (CLUSTER_MASK_CLIENT), NULL,  },    \
-    { 0x0500, (EmberAfAttributeMetadata*)&(generatedAttributes[83]), 2, 3, (CLUSTER_MASK_CLIENT), NULL,  },    \
+    { 0x0500, (EmberAfAttributeMetadata*)&(generatedAttributes[83]), 2, 3, (CLUSTER_MASK_CLIENT| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayIasZoneClusterClient, },    \
     { 0x0000, (EmberAfAttributeMetadata*)&(generatedAttributes[0]), 14, 0, (CLUSTER_MASK_SERVER), NULL,  },    \
     { 0x0003, (EmberAfAttributeMetadata*)&(generatedAttributes[14]), 2, 4, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION| CLUSTER_MASK_ATTRIBUTE_CHANGED_FUNCTION), emberAfFuncArrayIdentifyClusterServer, },    \
     { 0x0004, (EmberAfAttributeMetadata*)&(generatedAttributes[16]), 2, 3, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayGroupsClusterServer, },    \
@@ -203,6 +204,7 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
   void emberAfPluginZllCommissioningCommonInitCallback(void); \
   void emberAfPluginGreenPowerClientInitCallback(void); \
   void emberAfPluginReportingInitCallback(void); \
+  void emberAfPluginConcentratorInitCallback(void); \
   void emberAfPluginInterpanInitCallback(void); \
   void emberAfPluginCountersInitCallback(void); \
 
@@ -211,17 +213,20 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
   emberAfPluginZllCommissioningCommonInitCallback(); \
   emberAfPluginGreenPowerClientInitCallback(); \
   emberAfPluginReportingInitCallback(); \
+  emberAfPluginConcentratorInitCallback(); \
   emberAfPluginInterpanInitCallback(); \
   emberAfPluginCountersInitCallback(); \
 
 
 #define EMBER_AF_GENERATED_PLUGIN_NCP_INIT_FUNCTION_DECLARATIONS \
   void emberAfPluginZllCommissioningCommonNcpInitCallback(bool memoryAllocation); \
+  void emberAfPluginConcentratorNcpInitCallback(bool memoryAllocation); \
   void emberAfPluginInterpanNcpInitCallback(bool memoryAllocation); \
 
 
 #define EMBER_AF_GENERATED_PLUGIN_NCP_INIT_FUNCTION_CALLS \
   emberAfPluginZllCommissioningCommonNcpInitCallback(memoryAllocation); \
+  emberAfPluginConcentratorNcpInitCallback(memoryAllocation); \
   emberAfPluginInterpanNcpInitCallback(memoryAllocation); \
 
 
@@ -229,6 +234,8 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
   void emberAfPluginZllCommissioningCommonStackStatusCallback(EmberStatus status); \
   void emberAfPluginGreenPowerClientStackStatusCallback(EmberStatus status); \
   void emberAfPluginReportingStackStatusCallback(EmberStatus status); \
+  void emberAfPluginConcentratorStackStatusCallback(EmberStatus status); \
+  void emberAfPluginNetworkCreatorSecurityStackStatusCallback(EmberStatus status); \
   void emberAfPluginNetworkSteeringStackStatusCallback(EmberStatus status); \
 
 
@@ -236,7 +243,45 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
   emberAfPluginZllCommissioningCommonStackStatusCallback(status); \
   emberAfPluginGreenPowerClientStackStatusCallback(status); \
   emberAfPluginReportingStackStatusCallback(status); \
+  emberAfPluginConcentratorStackStatusCallback(status); \
+  emberAfPluginNetworkCreatorSecurityStackStatusCallback(status); \
   emberAfPluginNetworkSteeringStackStatusCallback(status); \
+
+
+#define EMBER_AF_GENERATED_PLUGIN_MESSAGE_SENT_FUNCTION_DECLARATIONS \
+  void emberAfPluginConcentratorMessageSentCallback( \
+  EmberOutgoingMessageType type, \
+  uint16_t indexOrDestination, \
+  EmberApsFrame *apsFrame, \
+  EmberStatus status, \
+  uint16_t messageLength, \
+  uint8_t *messageContents); \
+
+
+#define EMBER_AF_GENERATED_PLUGIN_MESSAGE_SENT_FUNCTION_CALLS \
+  emberAfPluginConcentratorMessageSentCallback( \
+  type, \
+  indexOrDestination, \
+  apsFrame, \
+  status, \
+  messageLength, \
+  messageContents); \
+
+
+#define EMBER_AF_GENERATED_PLUGIN_ZDO_MESSAGE_RECEIVED_FUNCTION_DECLARATIONS \
+  void emberAfPluginIasZoneClientZdoMessageReceivedCallback( \
+  EmberNodeId sender, \
+  EmberApsFrame* apsFrame, \
+  uint8_t* message, \
+  uint16_t length); \
+
+
+#define EMBER_AF_GENERATED_PLUGIN_ZDO_MESSAGE_RECEIVED_FUNCTION_CALLS \
+  emberAfPluginIasZoneClientZdoMessageReceivedCallback( \
+  sender, \
+  apsFrame, \
+  message, \
+  length); \
 
 
 // Generated data for the command discovery
@@ -307,6 +352,8 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
     { 0x0300, 0x4B, COMMAND_MASK_INCOMING_SERVER }, /* Color Control / MoveColorTemperature */ \
     { 0x0300, 0x4C, COMMAND_MASK_INCOMING_SERVER }, /* Color Control / StepColorTemperature */ \
     { 0x0500, 0x00, COMMAND_MASK_OUTGOING_CLIENT }, /* IAS Zone / ZoneEnrollResponse */ \
+    { 0x0500, 0x00, COMMAND_MASK_INCOMING_CLIENT }, /* IAS Zone / ZoneStatusChangeNotification */ \
+    { 0x0500, 0x01, COMMAND_MASK_INCOMING_CLIENT }, /* IAS Zone / ZoneEnrollRequest */ \
     { 0x1000, 0x01, COMMAND_MASK_OUTGOING_SERVER }, /* ZLL Commissioning / ScanResponse */ \
     { 0x1000, 0x03, COMMAND_MASK_OUTGOING_SERVER }, /* ZLL Commissioning / DeviceInformationResponse */ \
     { 0x1000, 0x11, COMMAND_MASK_OUTGOING_SERVER }, /* ZLL Commissioning / NetworkStartResponse */ \
@@ -318,7 +365,7 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
     { 0x1000, 0x42, COMMAND_MASK_OUTGOING_SERVER }, /* ZLL Commissioning / GetEndpointListResponse */ \
     { 0x1000, 0x42, COMMAND_MASK_INCOMING_SERVER }, /* ZLL Commissioning / GetEndpointListRequest */ \
   }
-#define EMBER_AF_GENERATED_COMMAND_COUNT (76)
+#define EMBER_AF_GENERATED_COMMAND_COUNT (78)
 
 // Command manufacturer codes
 #define GENERATED_COMMAND_MANUFACTURER_CODES {      \

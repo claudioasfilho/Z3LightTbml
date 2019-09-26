@@ -55,68 +55,70 @@
     { 0x0003, ZCL_BOOLEAN_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 21 / Scenes / scene valid*/\
     { 0x0004, ZCL_BITMAP8_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 22 / Scenes / name support*/\
     { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 23 / Scenes / cluster revision*/\
-    { 0x0000, ZCL_BOOLEAN_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x00 } }, /* 24 / On/off / on/off*/\
-    { 0x4000, ZCL_BOOLEAN_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x01 } }, /* 25 / On/off / global scene control*/\
-    { 0x4001, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_WRITABLE), { (uint8_t*)0x0000 } }, /* 26 / On/off / on time*/\
-    { 0x4002, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_WRITABLE), { (uint8_t*)0x0000 } }, /* 27 / On/off / off wait time*/\
-    { 0x4003, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_WRITABLE|ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0xFF } }, /* 28 / On/off / start up on off*/\
-    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 29 / On/off / cluster revision*/\
-    { 0x0000, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x00 } }, /* 30 / Level Control / current level*/\
-    { 0x0001, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 31 / Level Control / remaining time*/\
-    { 0x000F, ZCL_BITMAP8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_WRITABLE), { (uint8_t*)0x00 } }, /* 32 / Level Control / options*/\
-    { 0x4000, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_WRITABLE|ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x33 } }, /* 33 / Level Control / start up current level*/\
-    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 34 / Level Control / cluster revision*/\
-    { 0x0010, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x14 } }, /* 35 / Green Power / gpp max proxy table entries*/\
-    { 0x0011, ZCL_LONG_OCTET_STRING_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0000 } }, /* 36 / Green Power / proxy table*/\
-    { 0x0016, ZCL_BITMAP24_ATTRIBUTE_TYPE, 3, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)&(generatedDefaults[0]) } }, /* 37 / Green Power / gpp functionality*/\
-    { 0x0017, ZCL_BITMAP24_ATTRIBUTE_TYPE, 3, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)&(generatedDefaults[3]) } }, /* 38 / Green Power / gpp active functionality*/\
-    { 0x0022, ZCL_SECURITY_KEY_ATTRIBUTE_TYPE, 16, (ATTRIBUTE_MASK_WRITABLE|ATTRIBUTE_MASK_CLIENT), { (uint8_t*)&(generatedDefaults[6]) } }, /* 39 / Green Power / gp link key*/\
-    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001 } }, /* 40 / Green Power / cluster revision*/\
-    { 0x0000, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 41 / Color Control / current hue*/\
-    { 0x0001, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 42 / Color Control / current saturation*/\
-    { 0x0002, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 43 / Color Control / remaining time*/\
-    { 0x0003, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x616B } }, /* 44 / Color Control / current x*/\
-    { 0x0004, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x607D } }, /* 45 / Color Control / current y*/\
-    { 0x0007, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x00FA } }, /* 46 / Color Control / color temperature*/\
-    { 0x0008, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x01 } }, /* 47 / Color Control / color mode*/\
-    { 0x000F, ZCL_BITMAP8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_WRITABLE), { (uint8_t*)0x00 } }, /* 48 / Color Control / color control options*/\
-    { 0x0010, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 49 / Color Control / number of primaries*/\
-    { 0x0011, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 50 / Color Control / primary 1 x*/\
-    { 0x0012, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 51 / Color Control / primary 1 y*/\
-    { 0x0013, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 52 / Color Control / primary 1 intensity*/\
-    { 0x0015, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 53 / Color Control / primary 2 x*/\
-    { 0x0016, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 54 / Color Control / primary 2 y*/\
-    { 0x0017, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 55 / Color Control / primary 2 intensity*/\
-    { 0x0019, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 56 / Color Control / primary 3 x*/\
-    { 0x001A, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 57 / Color Control / primary 3 y*/\
-    { 0x001B, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 58 / Color Control / primary 3 intensity*/\
-    { 0x0020, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 59 / Color Control / primary 4 x*/\
-    { 0x0021, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 60 / Color Control / primary 4 y*/\
-    { 0x0022, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 61 / Color Control / primary 4 intensity*/\
-    { 0x0024, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 62 / Color Control / primary 5 x*/\
-    { 0x0025, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 63 / Color Control / primary 5 y*/\
-    { 0x0026, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 64 / Color Control / primary 5 intensity*/\
-    { 0x0028, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 65 / Color Control / primary 6 x*/\
-    { 0x0029, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 66 / Color Control / primary 6 y*/\
-    { 0x002A, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 67 / Color Control / primary 6 intensity*/\
-    { 0x4000, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 68 / Color Control / enhanced current hue*/\
-    { 0x4001, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x01 } }, /* 69 / Color Control / enhanced color mode*/\
-    { 0x4002, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 70 / Color Control / color loop active*/\
-    { 0x4003, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 71 / Color Control / color loop direction*/\
-    { 0x4004, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0019 } }, /* 72 / Color Control / color loop time*/\
-    { 0x4005, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x2300 } }, /* 73 / Color Control / color loop start enhanced hue*/\
-    { 0x4006, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 74 / Color Control / color loop stored enhanced hue*/\
-    { 0x400A, ZCL_BITMAP16_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 75 / Color Control / color capabilities*/\
-    { 0x400B, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 76 / Color Control / color temp physical min*/\
-    { 0x400C, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0xFEFF } }, /* 77 / Color Control / color temp physical max*/\
-    { 0x400D, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 78 / Color Control / couple color temp to level min-mireds*/\
-    { 0x4010, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_WRITABLE|ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x4444 } }, /* 79 / Color Control / start up color temperature mireds*/\
-    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 80 / Color Control / cluster revision*/\
-    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001 } }, /* 81 / Occupancy Sensing / cluster revision*/\
-    { 0xFFFE, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x00 } }, /* 82 / Occupancy Sensing / reporting status*/\
-    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001 } }, /* 83 / IAS Zone / cluster revision*/\
-    { 0xFFFE, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x00 } }, /* 84 / IAS Zone / reporting status*/\
-    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 85 / ZLL Commissioning / cluster revision*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001 } }, /* 24 / On/off / cluster revision*/\
+    { 0x0000, ZCL_BOOLEAN_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x00 } }, /* 25 / On/off / on/off*/\
+    { 0x4000, ZCL_BOOLEAN_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x01 } }, /* 26 / On/off / global scene control*/\
+    { 0x4001, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_WRITABLE), { (uint8_t*)0x0000 } }, /* 27 / On/off / on time*/\
+    { 0x4002, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_WRITABLE), { (uint8_t*)0x0000 } }, /* 28 / On/off / off wait time*/\
+    { 0x4003, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_WRITABLE|ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0xFF } }, /* 29 / On/off / start up on off*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 30 / On/off / cluster revision*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001 } }, /* 31 / Level Control / cluster revision*/\
+    { 0x0000, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x00 } }, /* 32 / Level Control / current level*/\
+    { 0x0001, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 33 / Level Control / remaining time*/\
+    { 0x000F, ZCL_BITMAP8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_WRITABLE), { (uint8_t*)0x00 } }, /* 34 / Level Control / options*/\
+    { 0x4000, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_WRITABLE|ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x33 } }, /* 35 / Level Control / start up current level*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 36 / Level Control / cluster revision*/\
+    { 0x0010, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x14 } }, /* 37 / Green Power / gpp max proxy table entries*/\
+    { 0x0011, ZCL_LONG_OCTET_STRING_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0000 } }, /* 38 / Green Power / proxy table*/\
+    { 0x0016, ZCL_BITMAP24_ATTRIBUTE_TYPE, 3, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)&(generatedDefaults[0]) } }, /* 39 / Green Power / gpp functionality*/\
+    { 0x0017, ZCL_BITMAP24_ATTRIBUTE_TYPE, 3, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)&(generatedDefaults[3]) } }, /* 40 / Green Power / gpp active functionality*/\
+    { 0x0022, ZCL_SECURITY_KEY_ATTRIBUTE_TYPE, 16, (ATTRIBUTE_MASK_WRITABLE|ATTRIBUTE_MASK_CLIENT), { (uint8_t*)&(generatedDefaults[6]) } }, /* 41 / Green Power / gp link key*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001 } }, /* 42 / Green Power / cluster revision*/\
+    { 0x0000, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 43 / Color Control / current hue*/\
+    { 0x0001, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 44 / Color Control / current saturation*/\
+    { 0x0002, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 45 / Color Control / remaining time*/\
+    { 0x0003, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x616B } }, /* 46 / Color Control / current x*/\
+    { 0x0004, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x607D } }, /* 47 / Color Control / current y*/\
+    { 0x0007, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x00FA } }, /* 48 / Color Control / color temperature*/\
+    { 0x0008, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x01 } }, /* 49 / Color Control / color mode*/\
+    { 0x000F, ZCL_BITMAP8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_WRITABLE), { (uint8_t*)0x00 } }, /* 50 / Color Control / color control options*/\
+    { 0x0010, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 51 / Color Control / number of primaries*/\
+    { 0x0011, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 52 / Color Control / primary 1 x*/\
+    { 0x0012, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 53 / Color Control / primary 1 y*/\
+    { 0x0013, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 54 / Color Control / primary 1 intensity*/\
+    { 0x0015, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 55 / Color Control / primary 2 x*/\
+    { 0x0016, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 56 / Color Control / primary 2 y*/\
+    { 0x0017, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 57 / Color Control / primary 2 intensity*/\
+    { 0x0019, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 58 / Color Control / primary 3 x*/\
+    { 0x001A, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 59 / Color Control / primary 3 y*/\
+    { 0x001B, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 60 / Color Control / primary 3 intensity*/\
+    { 0x0020, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 61 / Color Control / primary 4 x*/\
+    { 0x0021, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 62 / Color Control / primary 4 y*/\
+    { 0x0022, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 63 / Color Control / primary 4 intensity*/\
+    { 0x0024, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 64 / Color Control / primary 5 x*/\
+    { 0x0025, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 65 / Color Control / primary 5 y*/\
+    { 0x0026, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 66 / Color Control / primary 5 intensity*/\
+    { 0x0028, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 67 / Color Control / primary 6 x*/\
+    { 0x0029, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 68 / Color Control / primary 6 y*/\
+    { 0x002A, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00UL } }, /* 69 / Color Control / primary 6 intensity*/\
+    { 0x4000, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 70 / Color Control / enhanced current hue*/\
+    { 0x4001, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x01 } }, /* 71 / Color Control / enhanced color mode*/\
+    { 0x4002, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 72 / Color Control / color loop active*/\
+    { 0x4003, ZCL_INT8U_ATTRIBUTE_TYPE, 1, (0x00), { (uint8_t*)0x00 } }, /* 73 / Color Control / color loop direction*/\
+    { 0x4004, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0019 } }, /* 74 / Color Control / color loop time*/\
+    { 0x4005, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x2300 } }, /* 75 / Color Control / color loop start enhanced hue*/\
+    { 0x4006, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 76 / Color Control / color loop stored enhanced hue*/\
+    { 0x400A, ZCL_BITMAP16_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 77 / Color Control / color capabilities*/\
+    { 0x400B, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000 } }, /* 78 / Color Control / color temp physical min*/\
+    { 0x400C, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0xFEFF } }, /* 79 / Color Control / color temp physical max*/\
+    { 0x400D, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0000UL } }, /* 80 / Color Control / couple color temp to level min-mireds*/\
+    { 0x4010, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_WRITABLE|ATTRIBUTE_MASK_TOKENIZE), { (uint8_t*)0x4444 } }, /* 81 / Color Control / start up color temperature mireds*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 82 / Color Control / cluster revision*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001 } }, /* 83 / Occupancy Sensing / cluster revision*/\
+    { 0xFFFE, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x00 } }, /* 84 / Occupancy Sensing / reporting status*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001 } }, /* 85 / IAS Zone / cluster revision*/\
+    { 0xFFFE, ZCL_ENUM8_ATTRIBUTE_TYPE, 1, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x00 } }, /* 86 / IAS Zone / reporting status*/\
+    { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (0x00), { (uint8_t*)0x0001 } }, /* 87 / ZLL Commissioning / cluster revision*/\
   }
 
 
@@ -137,26 +139,28 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
     { 0x0003, (EmberAfAttributeMetadata*)&(generatedAttributes[14]), 2, 4, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION| CLUSTER_MASK_ATTRIBUTE_CHANGED_FUNCTION), emberAfFuncArrayIdentifyClusterServer, },    \
     { 0x0004, (EmberAfAttributeMetadata*)&(generatedAttributes[16]), 2, 3, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayGroupsClusterServer, },    \
     { 0x0005, (EmberAfAttributeMetadata*)&(generatedAttributes[18]), 6, 8, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayScenesClusterServer, },    \
-    { 0x0006, (EmberAfAttributeMetadata*)&(generatedAttributes[24]), 6, 9, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION| CLUSTER_MASK_ATTRIBUTE_CHANGED_FUNCTION), emberAfFuncArrayOnOffClusterServer, },    \
-    { 0x0406, (EmberAfAttributeMetadata*)&(generatedAttributes[81]), 2, 3, (CLUSTER_MASK_CLIENT), NULL,  },    \
-    { 0x0500, (EmberAfAttributeMetadata*)&(generatedAttributes[83]), 2, 3, (CLUSTER_MASK_CLIENT| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayIasZoneClusterClient, },    \
+    { 0x0006, (EmberAfAttributeMetadata*)&(generatedAttributes[24]), 1, 2, (CLUSTER_MASK_CLIENT), NULL,  },    \
+    { 0x0006, (EmberAfAttributeMetadata*)&(generatedAttributes[25]), 6, 9, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION| CLUSTER_MASK_ATTRIBUTE_CHANGED_FUNCTION), emberAfFuncArrayOnOffClusterServer, },    \
+    { 0x0008, (EmberAfAttributeMetadata*)&(generatedAttributes[31]), 1, 2, (CLUSTER_MASK_CLIENT), NULL,  },    \
+    { 0x0406, (EmberAfAttributeMetadata*)&(generatedAttributes[83]), 2, 3, (CLUSTER_MASK_CLIENT), NULL,  },    \
+    { 0x0500, (EmberAfAttributeMetadata*)&(generatedAttributes[85]), 2, 3, (CLUSTER_MASK_CLIENT| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayIasZoneClusterClient, },    \
     { 0x0000, (EmberAfAttributeMetadata*)&(generatedAttributes[0]), 14, 0, (CLUSTER_MASK_SERVER), NULL,  },    \
     { 0x0003, (EmberAfAttributeMetadata*)&(generatedAttributes[14]), 2, 4, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION| CLUSTER_MASK_ATTRIBUTE_CHANGED_FUNCTION), emberAfFuncArrayIdentifyClusterServer, },    \
     { 0x0004, (EmberAfAttributeMetadata*)&(generatedAttributes[16]), 2, 3, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayGroupsClusterServer, },    \
     { 0x0005, (EmberAfAttributeMetadata*)&(generatedAttributes[18]), 6, 8, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayScenesClusterServer, },    \
-    { 0x0006, (EmberAfAttributeMetadata*)&(generatedAttributes[24]), 6, 9, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION| CLUSTER_MASK_ATTRIBUTE_CHANGED_FUNCTION), emberAfFuncArrayOnOffClusterServer, },    \
-    { 0x0008, (EmberAfAttributeMetadata*)&(generatedAttributes[30]), 5, 7, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayLevelControlClusterServer, },    \
-    { 0x0300, (EmberAfAttributeMetadata*)&(generatedAttributes[41]), 40, 66, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayColorControlClusterServer, },    \
-    { 0x1000, (EmberAfAttributeMetadata*)&(generatedAttributes[85]), 1, 2, (CLUSTER_MASK_SERVER), NULL,  },    \
-    { 0x0021, (EmberAfAttributeMetadata*)&(generatedAttributes[35]), 6, 27, (CLUSTER_MASK_CLIENT), NULL,  },    \
+    { 0x0006, (EmberAfAttributeMetadata*)&(generatedAttributes[25]), 6, 9, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION| CLUSTER_MASK_ATTRIBUTE_CHANGED_FUNCTION), emberAfFuncArrayOnOffClusterServer, },    \
+    { 0x0008, (EmberAfAttributeMetadata*)&(generatedAttributes[32]), 5, 7, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayLevelControlClusterServer, },    \
+    { 0x0300, (EmberAfAttributeMetadata*)&(generatedAttributes[43]), 40, 66, (CLUSTER_MASK_SERVER| CLUSTER_MASK_INIT_FUNCTION), emberAfFuncArrayColorControlClusterServer, },    \
+    { 0x1000, (EmberAfAttributeMetadata*)&(generatedAttributes[87]), 1, 2, (CLUSTER_MASK_SERVER), NULL,  },    \
+    { 0x0021, (EmberAfAttributeMetadata*)&(generatedAttributes[37]), 6, 27, (CLUSTER_MASK_CLIENT), NULL,  },    \
   }
 
 
 // Endpoint types
 #define GENERATED_ENDPOINT_TYPES {        \
-    { (EmberAfCluster*)&(generatedClusters[0]), 7, 30 }, \
-    { (EmberAfCluster*)&(generatedClusters[7]), 8, 99 }, \
-    { (EmberAfCluster*)&(generatedClusters[15]), 1, 27 }, \
+    { (EmberAfCluster*)&(generatedClusters[0]), 9, 34 }, \
+    { (EmberAfCluster*)&(generatedClusters[9]), 8, 99 }, \
+    { (EmberAfCluster*)&(generatedClusters[17]), 1, 27 }, \
   }
 
 
@@ -179,7 +183,7 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
 #define ATTRIBUTE_SINGLETONS_SIZE (191)
 
 // Total size of attribute storage
-#define ATTRIBUTE_MAX_SIZE 156
+#define ATTRIBUTE_MAX_SIZE 160
 
 // Array of endpoints that are supported
 #define FIXED_ENDPOINT_ARRAY { 1, 2, 242 }
@@ -204,6 +208,7 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
   void emberAfPluginZllCommissioningCommonInitCallback(void); \
   void emberAfPluginGreenPowerClientInitCallback(void); \
   void emberAfPluginReportingInitCallback(void); \
+  void emberAfPluginConcentratorInitCallback(void); \
   void emberAfPluginInterpanInitCallback(void); \
   void emberAfPluginCountersInitCallback(void); \
 
@@ -212,17 +217,20 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
   emberAfPluginZllCommissioningCommonInitCallback(); \
   emberAfPluginGreenPowerClientInitCallback(); \
   emberAfPluginReportingInitCallback(); \
+  emberAfPluginConcentratorInitCallback(); \
   emberAfPluginInterpanInitCallback(); \
   emberAfPluginCountersInitCallback(); \
 
 
 #define EMBER_AF_GENERATED_PLUGIN_NCP_INIT_FUNCTION_DECLARATIONS \
   void emberAfPluginZllCommissioningCommonNcpInitCallback(bool memoryAllocation); \
+  void emberAfPluginConcentratorNcpInitCallback(bool memoryAllocation); \
   void emberAfPluginInterpanNcpInitCallback(bool memoryAllocation); \
 
 
 #define EMBER_AF_GENERATED_PLUGIN_NCP_INIT_FUNCTION_CALLS \
   emberAfPluginZllCommissioningCommonNcpInitCallback(memoryAllocation); \
+  emberAfPluginConcentratorNcpInitCallback(memoryAllocation); \
   emberAfPluginInterpanNcpInitCallback(memoryAllocation); \
 
 
@@ -230,6 +238,8 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
   void emberAfPluginZllCommissioningCommonStackStatusCallback(EmberStatus status); \
   void emberAfPluginGreenPowerClientStackStatusCallback(EmberStatus status); \
   void emberAfPluginReportingStackStatusCallback(EmberStatus status); \
+  void emberAfPluginConcentratorStackStatusCallback(EmberStatus status); \
+  void emberAfPluginNetworkCreatorSecurityStackStatusCallback(EmberStatus status); \
   void emberAfPluginNetworkSteeringStackStatusCallback(EmberStatus status); \
 
 
@@ -237,7 +247,29 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
   emberAfPluginZllCommissioningCommonStackStatusCallback(status); \
   emberAfPluginGreenPowerClientStackStatusCallback(status); \
   emberAfPluginReportingStackStatusCallback(status); \
+  emberAfPluginConcentratorStackStatusCallback(status); \
+  emberAfPluginNetworkCreatorSecurityStackStatusCallback(status); \
   emberAfPluginNetworkSteeringStackStatusCallback(status); \
+
+
+#define EMBER_AF_GENERATED_PLUGIN_MESSAGE_SENT_FUNCTION_DECLARATIONS \
+  void emberAfPluginConcentratorMessageSentCallback( \
+  EmberOutgoingMessageType type, \
+  uint16_t indexOrDestination, \
+  EmberApsFrame *apsFrame, \
+  EmberStatus status, \
+  uint16_t messageLength, \
+  uint8_t *messageContents); \
+
+
+#define EMBER_AF_GENERATED_PLUGIN_MESSAGE_SENT_FUNCTION_CALLS \
+  emberAfPluginConcentratorMessageSentCallback( \
+  type, \
+  indexOrDestination, \
+  apsFrame, \
+  status, \
+  messageLength, \
+  messageContents); \
 
 
 #define EMBER_AF_GENERATED_PLUGIN_ZDO_MESSAGE_RECEIVED_FUNCTION_DECLARATIONS \
@@ -289,20 +321,20 @@ const EmberAfGenericClusterFunction emberAfFuncArrayColorControlClusterServer[] 
     { 0x0005, 0x40, COMMAND_MASK_INCOMING_SERVER }, /* Scenes / EnhancedAddScene */ \
     { 0x0005, 0x41, COMMAND_MASK_INCOMING_SERVER }, /* Scenes / EnhancedViewScene */ \
     { 0x0005, 0x42, COMMAND_MASK_INCOMING_SERVER }, /* Scenes / CopyScene */ \
-    { 0x0006, 0x00, COMMAND_MASK_INCOMING_SERVER }, /* On/off / Off */ \
-    { 0x0006, 0x01, COMMAND_MASK_INCOMING_SERVER }, /* On/off / On */ \
-    { 0x0006, 0x02, COMMAND_MASK_INCOMING_SERVER }, /* On/off / Toggle */ \
+    { 0x0006, 0x00, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* On/off / Off */ \
+    { 0x0006, 0x01, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* On/off / On */ \
+    { 0x0006, 0x02, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* On/off / Toggle */ \
     { 0x0006, 0x40, COMMAND_MASK_INCOMING_SERVER }, /* On/off / OffWithEffect */ \
     { 0x0006, 0x41, COMMAND_MASK_INCOMING_SERVER }, /* On/off / OnWithRecallGlobalScene */ \
     { 0x0006, 0x42, COMMAND_MASK_INCOMING_SERVER }, /* On/off / OnWithTimedOff */ \
-    { 0x0008, 0x00, COMMAND_MASK_INCOMING_SERVER }, /* Level Control / MoveToLevel */ \
-    { 0x0008, 0x01, COMMAND_MASK_INCOMING_SERVER }, /* Level Control / Move */ \
-    { 0x0008, 0x02, COMMAND_MASK_INCOMING_SERVER }, /* Level Control / Step */ \
-    { 0x0008, 0x03, COMMAND_MASK_INCOMING_SERVER }, /* Level Control / Stop */ \
-    { 0x0008, 0x04, COMMAND_MASK_INCOMING_SERVER }, /* Level Control / MoveToLevelWithOnOff */ \
-    { 0x0008, 0x05, COMMAND_MASK_INCOMING_SERVER }, /* Level Control / MoveWithOnOff */ \
-    { 0x0008, 0x06, COMMAND_MASK_INCOMING_SERVER }, /* Level Control / StepWithOnOff */ \
-    { 0x0008, 0x07, COMMAND_MASK_INCOMING_SERVER }, /* Level Control / StopWithOnOff */ \
+    { 0x0008, 0x00, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* Level Control / MoveToLevel */ \
+    { 0x0008, 0x01, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* Level Control / Move */ \
+    { 0x0008, 0x02, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* Level Control / Step */ \
+    { 0x0008, 0x03, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* Level Control / Stop */ \
+    { 0x0008, 0x04, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* Level Control / MoveToLevelWithOnOff */ \
+    { 0x0008, 0x05, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* Level Control / MoveWithOnOff */ \
+    { 0x0008, 0x06, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* Level Control / StepWithOnOff */ \
+    { 0x0008, 0x07, COMMAND_MASK_OUTGOING_CLIENT | COMMAND_MASK_INCOMING_SERVER }, /* Level Control / StopWithOnOff */ \
     { 0x0021, 0x00, COMMAND_MASK_INCOMING_CLIENT }, /* Green Power / GpNotificationResponse */ \
     { 0x0021, 0x01, COMMAND_MASK_INCOMING_CLIENT }, /* Green Power / GpPairing */ \
     { 0x0021, 0x02, COMMAND_MASK_INCOMING_CLIENT }, /* Green Power / GpProxyCommissioningMode */ \

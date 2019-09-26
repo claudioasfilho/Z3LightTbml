@@ -26566,6 +26566,19 @@ void emberAfPluginColorControlServerComputePwmFromTempCallback(uint8_t endpoint)
 /** @} END Color Control Cluster Server Plugin Callbacks */
 
 
+/** @name Concentrator Support Plugin Callbacks */
+// @{
+
+/** @brief Broadcast Sent
+ *
+ * This function is called when a new MTORR broadcast has been successfully
+ * sent by the concentrator plugin.
+ *
+ */
+void emberAfPluginConcentratorBroadcastSentCallback(void);
+/** @} END Concentrator Support Plugin Callbacks */
+
+
 /** @name On/Off Server Cluster Plugin Callbacks */
 // @{
 
@@ -26716,6 +26729,40 @@ void halRadioPowerDownHandler(void);
  */
 void halSleepCallback(boolean enter, SleepModes sleepMode);
 /** @} END HAL Library Plugin Callbacks */
+
+
+/** @name Network Creator Plugin Callbacks */
+// @{
+
+/** @brief Complete
+ *
+ * This callback notifies the user that the network creation process has
+ * completed successfully.
+ *
+ * @param network The network that the network creator plugin successfully
+ * formed. Ver.: always
+ * @param usedSecondaryChannels Whether or not the network creator wants to
+ * form a network on the secondary channels Ver.: always
+ */
+void emberAfPluginNetworkCreatorCompleteCallback(const EmberNetworkParameters *network,
+                                                 bool usedSecondaryChannels);
+/** @brief Get Pan Id
+ *
+ * This callback is called when the Network Creator plugin needs the PAN ID for
+ * the network it is about to create. By default, the callback will return a
+ * random 16-bit value.
+ *
+ */
+EmberPanId emberAfPluginNetworkCreatorGetPanIdCallback(void);
+/** @brief Get Power For Radio Channel
+ *
+ * This callback is called when the Network Creator plugin needs the radio power for
+ * the network it is about to create. By default, the callback will use the radio
+ * power specified in the relevant plugin option.
+ *
+ */
+int8_t emberAfPluginNetworkCreatorGetRadioPowerCallback(void);
+/** @} END Network Creator Plugin Callbacks */
 
 
 /** @name ZLL Commissioning Server Plugin Callbacks */

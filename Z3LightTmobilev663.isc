@@ -175,7 +175,7 @@ boolMap:HandleUnsupportedZdoRequests = false
 boolMap:HandleEndpointZdoRequests = false
 boolMap:HandleBindingZdoRequests = false
 boolMap:LegacyCli = false
-boolMap:AddCustomCli = false
+boolMap:AddCustomCli = true
 boolMap:IncludeCommandDescriptions = false
 boolMap:GenerateCallbacksFile = false
 boolMap:ManufacturerCodeDefaultIsZero = true
@@ -215,9 +215,9 @@ overrideClientCluster:0x0002,no
 overrideClientCluster:0x0003,no
 overrideClientCluster:0x0004,no
 overrideClientCluster:0x0005,no
-overrideClientCluster:0x0006,no
+overrideClientCluster:0x0006,yes
 overrideClientCluster:0x0007,no
-overrideClientCluster:0x0008,no
+overrideClientCluster:0x0008,yes
 overrideClientCluster:0x0009,no
 overrideClientCluster:0x000A,no
 overrideClientCluster:0x000B,no
@@ -478,7 +478,7 @@ intMap:LinkKeyMode = 2
 intMap:FragmentationMaxSize = 255
 intMap:HeartbeatLed = 1
 configuredNetworkSecurity:Primary|ZIGBEE_PRO=Z3
-configuredNetworkZigbeeDeviceType:Primary|ZIGBEE_PRO=ZA_ROUTER
+configuredNetworkZigbeeDeviceType:Primary|ZIGBEE_PRO=ZA_COORDINATOR
 CliCommandSet:Full
 }
 appPlugin:adc,true
@@ -527,7 +527,8 @@ appPlugin:color-control-server,true
 appPlugin:command-relay,false
 appPlugin:comms-hub-function,false
 appPlugin:comms-hub-function-sub-ghz,false
-appPlugin:concentrator,false
+appPlugin:concentrator,true
+
 appPlugin:configuration-server,false
 appPlugin:connection-manager,false
 appPlugin:counters,true
@@ -648,8 +649,10 @@ appPlugin:mpsi,false
 appPlugin:mpsi-ipc,false
 appPlugin:mpsi-storage,false
 appPlugin:multi-network-library,false
-appPlugin:network-creator,false
-appPlugin:network-creator-security,false
+appPlugin:network-creator,true
+
+appPlugin:network-creator-security,true
+
 appPlugin:network-find,false
 appPlugin:network-find-sub-ghz,false
 appPlugin:network-steering,true

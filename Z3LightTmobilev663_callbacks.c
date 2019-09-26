@@ -229,3 +229,37 @@ void emberAfHalButtonIsrCallback(uint8_t button, uint8_t state)
     emberEventControlSetActive(findingAndBindingEventControl);
   }
 }
+
+void getLedCommand(void)
+{}
+
+
+EmberCommandEntry emberAfCustomCommands[] = {
+  emberCommandEntryAction("get-led",
+                          getLedCommand,
+                          "",
+                          "Get the state of an LED on the NCP."),
+#if 0
+  emberCommandEntryAction("set-led",
+                          setLedCommand,
+                          "u",
+                          "Set the state of an LED on the NCP using a custom LED protocol command."),
+  emberCommandEntryAction("get-frequency",
+                          getFrequencyCommand,
+                          "",
+                          "Get the current frequency of the LED strobe on the NCP."),
+  emberCommandEntryAction("set-frequency",
+                          setFrequencyCommand,
+                          "w",
+                          "Set the frequency of the LED strobe on the NCP."),
+
+  emberCommandEntryAction("get-info",
+                          getInfoCommand,
+                          "",
+                          "Display the XNCP information on the CLI."),
+#endif
+
+  emberCommandEntryTerminator()
+};
+
+

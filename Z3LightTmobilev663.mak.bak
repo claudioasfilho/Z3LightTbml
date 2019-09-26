@@ -97,6 +97,8 @@ SOURCE_FILES = \
 ../../../../../Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/platform/base/hal/micro/cortexm3/efm32/hal-config.c \
 ../../../../../Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/platform/base/hal/micro/cortexm3/efm32/hal-config-gpio.c \
 ../../../../../Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/heartbeat/heartbeat.c \
+../../../../../Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/ias-zone-client/ias-zone-client.c \
+../../../../../Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/ias-zone-client/ias-zone-client-cli.c \
 ../../../../../Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/identify/identify.c \
 ../../../../../Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/identify/identify-cli.c \
 ../../../../../Applications/Simplicity Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/interpan/interpan.c \

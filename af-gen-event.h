@@ -18,11 +18,13 @@
   extern EmberEventControl emberAfPluginColorControlServerHueSatTransitionEventControl; \
   extern EmberEventControl emberAfPluginColorControlServerTempTransitionEventControl; \
   extern EmberEventControl emberAfPluginColorControlServerXyTransitionEventControl; \
+  extern EmberEventControl emberAfPluginConcentratorUpdateEventControl; \
   extern EmberEventControl emberAfPluginGreenPowerClientChannelEventControl; \
   extern EmberEventControl emberAfPluginGreenPowerClientExitCommissioningEventControl; \
   extern EmberEventControl emberAfPluginIasZoneClientStateMachineEventControl; \
   extern EmberEventControl emberAfPluginInterpanFragmentReceiveEventControl; \
   extern EmberEventControl emberAfPluginInterpanFragmentTransmitEventControl; \
+  extern EmberEventControl emberAfPluginNetworkCreatorSecurityOpenNetworkEventControl; \
   extern EmberEventControl emberAfPluginNetworkSteeringFinishSteeringEventControl; \
   extern EmberEventControl emberAfPluginReportingTickEventControl; \
   extern EmberEventControl emberAfPluginScanDispatchScanEventControl; \
@@ -32,11 +34,13 @@
   extern void emberAfPluginColorControlServerHueSatTransitionEventHandler(void); \
   extern void emberAfPluginColorControlServerTempTransitionEventHandler(void); \
   extern void emberAfPluginColorControlServerXyTransitionEventHandler(void); \
+  extern void emberAfPluginConcentratorUpdateEventHandler(void); \
   extern void emberAfPluginGreenPowerClientChannelEventHandler(void); \
   extern void emberAfPluginGreenPowerClientExitCommissioningEventHandler(void); \
   extern void emberAfPluginIasZoneClientStateMachineEventHandler(void); \
   extern void emberAfPluginInterpanFragmentReceiveEventHandler(void); \
   extern void emberAfPluginInterpanFragmentTransmitEventHandler(void); \
+  extern void emberAfPluginNetworkCreatorSecurityOpenNetworkEventHandler(void); \
   extern void emberAfPluginNetworkSteeringFinishSteeringEventHandler(void); \
   extern void emberAfPluginReportingTickEventHandler(void); \
   extern void emberAfPluginScanDispatchScanEventHandler(void); \
@@ -72,11 +76,13 @@
   { &emberAfPluginColorControlServerHueSatTransitionEventControl, emberAfPluginColorControlServerHueSatTransitionEventHandler }, \
   { &emberAfPluginColorControlServerTempTransitionEventControl, emberAfPluginColorControlServerTempTransitionEventHandler }, \
   { &emberAfPluginColorControlServerXyTransitionEventControl, emberAfPluginColorControlServerXyTransitionEventHandler }, \
+  { &emberAfPluginConcentratorUpdateEventControl, emberAfPluginConcentratorUpdateEventHandler }, \
   { &emberAfPluginGreenPowerClientChannelEventControl, emberAfPluginGreenPowerClientChannelEventHandler }, \
   { &emberAfPluginGreenPowerClientExitCommissioningEventControl, emberAfPluginGreenPowerClientExitCommissioningEventHandler }, \
   { &emberAfPluginIasZoneClientStateMachineEventControl, emberAfPluginIasZoneClientStateMachineEventHandler }, \
   { &emberAfPluginInterpanFragmentReceiveEventControl, emberAfPluginInterpanFragmentReceiveEventHandler }, \
   { &emberAfPluginInterpanFragmentTransmitEventControl, emberAfPluginInterpanFragmentTransmitEventHandler }, \
+  { &emberAfPluginNetworkCreatorSecurityOpenNetworkEventControl, emberAfPluginNetworkCreatorSecurityOpenNetworkEventHandler }, \
   { &emberAfPluginNetworkSteeringFinishSteeringEventControl, emberAfPluginNetworkSteeringFinishSteeringEventHandler }, \
   { &emberAfPluginReportingTickEventControl, emberAfPluginReportingTickEventHandler }, \
   { &emberAfPluginScanDispatchScanEventControl, emberAfPluginScanDispatchScanEventHandler }, \
@@ -97,11 +103,13 @@
   "Color Control Cluster Server Plugin HueSatTransition",  \
   "Color Control Cluster Server Plugin TempTransition",  \
   "Color Control Cluster Server Plugin XyTransition",  \
+  "Concentrator Support Plugin Update",  \
   "Green Power Client Plugin Channel",  \
   "Green Power Client Plugin ExitCommissioning",  \
   "IAS Zone Client Plugin StateMachine",  \
   "Interpan Plugin FragmentReceive",  \
   "Interpan Plugin FragmentTransmit",  \
+  "Network Creator Security Plugin OpenNetwork",  \
   "Network Steering Plugin FinishSteering",  \
   "Reporting Plugin Tick",  \
   "Scan Dispatch Plugin Scan",  \

@@ -206,7 +206,8 @@ zll-commissioning-common/zll-commissioning-common.o: \
  /Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6//protocol/zigbee/app/framework/util/../include/af.h \
  /Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6//protocol/zigbee/app/framework/util/attribute-table.h \
  /Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6//protocol/zigbee/app/framework/util/attribute-storage.h \
- /Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/zll-commissioning-common/zll-commissioning-common.h
+ /Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/zll-commissioning-common/zll-commissioning-common.h \
+ /Users/clfilho/SimplicityStudio/NM_workspace/Z3LightTmobilev663/../../../../../Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/network-creator/network-creator.h
 
 /Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6//protocol/zigbee/app/framework/include/af.h:
 
@@ -621,3 +622,5 @@ zll-commissioning-common/zll-commissioning-common.o: \
 /Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6//protocol/zigbee/app/framework/util/attribute-storage.h:
 
 /Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/zll-commissioning-common/zll-commissioning-common.h:
+
+/Users/clfilho/SimplicityStudio/NM_workspace/Z3LightTmobilev663/../../../../../Applications/Simplicity\ Studio.app/Contents/Eclipse/developer/sdks/gecko_sdk_suite/v2.6/protocol/zigbee/app/framework/plugin/network-creator/network-creator.h:

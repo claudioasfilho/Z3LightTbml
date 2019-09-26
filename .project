@@ -111,6 +111,26 @@
 			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/color-control-server/color-control-server.c</locationURI>
 		</link>
 		<link>
+			<name>concentrator/concentrator-support-cli.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support-cli.c</locationURI>
+		</link>
+		<link>
+			<name>concentrator/concentrator-support.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/concentrator/concentrator-support.c</locationURI>
+		</link>
+		<link>
+			<name>concentrator/source-route-common.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/concentrator/source-route-common.c</locationURI>
+		</link>
+		<link>
+			<name>concentrator/source-route.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/concentrator/source-route.c</locationURI>
+		</link>
+		<link>
 			<name>counters/counters-cli.c</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/counters/counters-cli.c</locationURI>
@@ -434,6 +454,26 @@
 			<name>level-control/level-control.c</name>
 			<type>1</type>
 			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/level-control/level-control.c</locationURI>
+		</link>
+		<link>
+			<name>network-creator/network-creator-cli.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/network-creator/network-creator-cli.c</locationURI>
+		</link>
+		<link>
+			<name>network-creator/network-creator.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/network-creator/network-creator.c</locationURI>
+		</link>
+		<link>
+			<name>network-creator-security/network-creator-security-cli.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/network-creator-security/network-creator-security-cli.c</locationURI>
+		</link>
+		<link>
+			<name>network-creator-security/network-creator-security.c</name>
+			<type>1</type>
+			<locationURI>STUDIO_SDK_LOC/protocol/zigbee/app/framework/plugin/network-creator-security/network-creator-security.c</locationURI>
 		</link>
 		<link>
 			<name>network-steering/network-steering-cli.c</name>

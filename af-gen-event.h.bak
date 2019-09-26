@@ -20,6 +20,7 @@
   extern EmberEventControl emberAfPluginColorControlServerXyTransitionEventControl; \
   extern EmberEventControl emberAfPluginGreenPowerClientChannelEventControl; \
   extern EmberEventControl emberAfPluginGreenPowerClientExitCommissioningEventControl; \
+  extern EmberEventControl emberAfPluginIasZoneClientStateMachineEventControl; \
   extern EmberEventControl emberAfPluginInterpanFragmentReceiveEventControl; \
   extern EmberEventControl emberAfPluginInterpanFragmentTransmitEventControl; \
   extern EmberEventControl emberAfPluginNetworkSteeringFinishSteeringEventControl; \
@@ -33,6 +34,7 @@
   extern void emberAfPluginColorControlServerXyTransitionEventHandler(void); \
   extern void emberAfPluginGreenPowerClientChannelEventHandler(void); \
   extern void emberAfPluginGreenPowerClientExitCommissioningEventHandler(void); \
+  extern void emberAfPluginIasZoneClientStateMachineEventHandler(void); \
   extern void emberAfPluginInterpanFragmentReceiveEventHandler(void); \
   extern void emberAfPluginInterpanFragmentTransmitEventHandler(void); \
   extern void emberAfPluginNetworkSteeringFinishSteeringEventHandler(void); \
@@ -72,6 +74,7 @@
   { &emberAfPluginColorControlServerXyTransitionEventControl, emberAfPluginColorControlServerXyTransitionEventHandler }, \
   { &emberAfPluginGreenPowerClientChannelEventControl, emberAfPluginGreenPowerClientChannelEventHandler }, \
   { &emberAfPluginGreenPowerClientExitCommissioningEventControl, emberAfPluginGreenPowerClientExitCommissioningEventHandler }, \
+  { &emberAfPluginIasZoneClientStateMachineEventControl, emberAfPluginIasZoneClientStateMachineEventHandler }, \
   { &emberAfPluginInterpanFragmentReceiveEventControl, emberAfPluginInterpanFragmentReceiveEventHandler }, \
   { &emberAfPluginInterpanFragmentTransmitEventControl, emberAfPluginInterpanFragmentTransmitEventHandler }, \
   { &emberAfPluginNetworkSteeringFinishSteeringEventControl, emberAfPluginNetworkSteeringFinishSteeringEventHandler }, \
@@ -96,6 +99,7 @@
   "Color Control Cluster Server Plugin XyTransition",  \
   "Green Power Client Plugin Channel",  \
   "Green Power Client Plugin ExitCommissioning",  \
+  "IAS Zone Client Plugin StateMachine",  \
   "Interpan Plugin FragmentReceive",  \
   "Interpan Plugin FragmentTransmit",  \
   "Network Steering Plugin FinishSteering",  \

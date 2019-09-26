@@ -645,18 +645,6 @@ uint16_t emberAfGetShortPollIntervalQsCallback(void)
   return 0;
 }
 
-/** @brief Get Source Route Overhead
- *
- * This function is called by the framework to determine the overhead required
- * in the network frame for source routing to a particular destination.
- *
- * @param destination The node id of the destination  Ver.: always
- */
-uint8_t emberAfGetSourceRouteOverheadCallback(EmberNodeId destination)
-{
-  return 0;
-}
-
 /** @brief Get Wake Timeout Bitmask
  *
  * This function is only useful to sleepy end devices.  This function will
@@ -1716,6 +1704,16 @@ void emberAfPluginColorControlServerComputePwmFromXyCallback(uint8_t endpoint)
 {
 }
 
+/** @brief Broadcast Sent
+ *
+ * This function is called when a new MTORR broadcast has been successfully
+ * sent by the concentrator plugin.
+ *
+ */
+void emberAfPluginConcentratorBroadcastSentCallback(void)
+{
+}
+
 /** @brief Rollover
  *
  * This function is called every time a counter exceeds its threshold.
@@ -1853,6 +1851,30 @@ bool emberAfPluginInterpanPreMessageReceivedCallback(const EmberAfInterpanHeader
  */
 void emberAfPluginLevelControlClusterServerPostInitCallback(uint8_t endpoint)
 {
+}
+
+/** @brief Get Pan Id
+ *
+ * This callback is called when the Network Creator plugin needs the PAN ID for
+ * the network it is about to create. By default, the callback will return a
+ * random 16-bit value.
+ *
+ */
+EmberPanId emberAfPluginNetworkCreatorGetPanIdCallback(void)
+{
+  return emberGetPseudoRandomNumber();
+}
+
+/** @brief Get Power For Radio Channel
+ *
+ * This callback is called when the Network Creator plugin needs the radio power for
+ * the network it is about to create. By default, the callback will use the radio
+ * power specified in the relevant plugin option.
+ *
+ */
+int8_t emberAfPluginNetworkCreatorGetRadioPowerCallback(void)
+{
+  return EMBER_AF_PLUGIN_NETWORK_CREATOR_RADIO_POWER;
 }
 
 /** @brief Get Distributed Key
@@ -2539,20 +2561,6 @@ void emberAfSetShortPollIntervalMsCallback(uint16_t shortPollIntervalMs)
  * @param shortPollIntervalQs   Ver.: always
  */
 void emberAfSetShortPollIntervalQsCallback(uint16_t shortPollIntervalQs)
-{
-}
-
-/** @brief Set Source Route Overhead
- *
- * This function is called by the framework when it has information about the
- * source route overhead to a particular destination. The application may use
- * this information to cache the source route overhead.
- *
- * @param destination The node id of the destination  Ver.: always
- * @param overhead The overhead in bytes  Ver.: always
- */
-void emberAfSetSourceRouteOverheadCallback(EmberNodeId destination,
-                                           uint8_t overhead)
 {
 }
 

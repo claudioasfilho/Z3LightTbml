@@ -448,6 +448,31 @@ static EmberCommandEntry emberCommandOptionTable[] = {
   emberCommandEntrySubMenu("security", emberCommandOptionSecurityTable, ""),
   emberCommandEntryTerminator(),
 };
+void emberAfPluginConcentratorAggregationCommand(void);
+void emberAfPluginConcentratorPrintHostSourceRouteTable(void);
+void emberAfPluginConcentratorPrintSourceRouteTable(void);
+void emberAfPluginConcentratorSetRouterBehaviorCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginConcentratorSetRouterBehaviorCommandArguments[] = {
+  "The value of a EMBER_AF_PLUGIN_CONCENTRATOR_ROUTER_BEHAVIOR_ enum memb ...",
+  NULL
+};
+#endif
+
+
+void emberAfPluginConcentratorStartDiscovery(void);
+void emberAfPluginConcentratorStatus(void);
+void emberAfPluginConcentratorStopDiscovery(void);
+static EmberCommandEntry emberCommandPluginConcentratorTable[] = {
+  emberCommandEntryActionWithDetails("agg", emberAfPluginConcentratorAggregationCommand, "", "(Requires Concentrator Support to be enabled on this devic ...", NULL),
+  emberCommandEntryActionWithDetails("print-host-table", emberAfPluginConcentratorPrintHostSourceRouteTable, "", "Print the host source route table.", NULL),
+  emberCommandEntryActionWithDetails("print-table", emberAfPluginConcentratorPrintSourceRouteTable, "", "Print the SOC/NCP source route table.", NULL),
+  emberCommandEntryActionWithDetails("set-router-behavior", emberAfPluginConcentratorSetRouterBehaviorCommand, "u", "This command allows the user to set the router behavior for this plugi ...", pluginConcentratorSetRouterBehaviorCommandArguments),
+  emberCommandEntryActionWithDetails("start", emberAfPluginConcentratorStartDiscovery, "", "Starts the periodic broadcast of MTORRs", NULL),
+  emberCommandEntryActionWithDetails("status", emberAfPluginConcentratorStatus, "", "Prints current status and configured parameters of the concentrator", NULL),
+  emberCommandEntryActionWithDetails("stop", emberAfPluginConcentratorStopDiscovery, "", "Stops the periodic broadcast of MTORRs", NULL),
+  emberCommandEntryTerminator(),
+};
 void emberAfPluginCounterPrintCounterTypeCommand(void);
 #if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
 static const char * const pluginCounterPrintCounterTypeCommandArguments[] = {
@@ -593,6 +618,13 @@ static EmberCommandEntry emberCommandPluginGroupsServerTable[] = {
   emberCommandEntryActionWithDetails("print", emAfGroupsServerCliPrint, "", "Print information about the contents of the groups table.", NULL),
   emberCommandEntryTerminator(),
 };
+void emAfPluginIasZoneClientClearAllServersCommand(void);
+void emAfPluginIasZoneClientPrintServersCommand(void);
+static EmberCommandEntry emberCommandPluginIasZoneClientTable[] = {
+  emberCommandEntryActionWithDetails("clear-all", emAfPluginIasZoneClientClearAllServersCommand, "", "Clear all known IAS Zone Servers from local device.", NULL),
+  emberCommandEntryActionWithDetails("print-servers", emAfPluginIasZoneClientPrintServersCommand, "", "Print the known IAS Zone Servers.", NULL),
+  emberCommandEntryTerminator(),
+};
 void emAfPluginIdentifyCliPrint(void);
 static EmberCommandEntry emberCommandPluginIdentifyTable[] = {
   emberCommandEntryActionWithDetails("print", emAfPluginIdentifyCliPrint, "", "Print which endpoints are reporting.", NULL),
@@ -626,6 +658,114 @@ static EmberCommandEntry emberCommandPluginInterpanTable[] = {
   emberCommandEntryActionWithDetails("enable", emAfInterpanEnableCommand, "", "Enables inter-PAN globally.", NULL),
   emberCommandEntryActionWithDetails("fragment-test", emAfInterpanFragmentTestCommand, "vbvv", "Sends a message of specified length of random values to target device  ...", pluginInterpanFragmentTestCommandArguments),
   emberCommandEntryActionWithDetails("set-msg-timeout", emAfInterpanSetMessageTimeoutCommand, "u", "Sets the timeout for inter-PAN messages sent and received.", pluginInterpanSetMsgTimeoutCommandArguments),
+  emberCommandEntryTerminator(),
+};
+void emberAfPluginNetworkCreatorFormCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorFormCommandArguments[] = {
+  "Whether or not to form a centralized networ ...",
+  "PanID of the network to be formed",
+  "Tx power of the network to be formed",
+  "channel of the network to be formed",
+  NULL
+};
+#endif
+
+
+void emberAfPluginNetworkCreatorChannelMaskCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorMaskAddCommandArguments[] = {
+  "The mask of choice to which to add the channe ...",
+  "The channel to add to the channel mask.",
+  NULL
+};
+#endif
+
+
+void emberAfPluginNetworkCreatorChannelMaskCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorMaskSetCommandArguments[] = {
+  "The mask of choice to se ...",
+  "The bit mask to which to set the chosen channel mask.",
+  NULL
+};
+#endif
+
+
+void emberAfPluginNetworkCreatorChannelMaskCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorMaskSubtractCommandArguments[] = {
+  "The mask of choice from which to subtract the channe ...",
+  "The channel to subtract from the channel mask.",
+  NULL
+};
+#endif
+
+
+static EmberCommandEntry emberCommandPluginNetworkCreatorMaskTable[] = {
+  emberCommandEntryActionWithDetails("add", emberAfPluginNetworkCreatorChannelMaskCommand, "uw", "Add a channel to the channel mask of choice.", pluginNetworkCreatorMaskAddCommandArguments),
+  emberCommandEntryActionWithDetails("set", emberAfPluginNetworkCreatorChannelMaskCommand, "uw", "Set a channel mask.", pluginNetworkCreatorMaskSetCommandArguments),
+  emberCommandEntryActionWithDetails("subtract", emberAfPluginNetworkCreatorChannelMaskCommand, "uw", "Subtract a channel from the channel mask of choice.", pluginNetworkCreatorMaskSubtractCommandArguments),
+  emberCommandEntryTerminator(),
+};
+void emberAfPluginNetworkCreatorStartCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorStartCommandArguments[] = {
+  "Whether or not to form a centralized networ ...",
+  NULL
+};
+#endif
+
+
+void emberAfPluginNetworkCreatorStatusCommand(void);
+void emberAfPluginNetworkCreatorStop(void);
+static EmberCommandEntry emberCommandPluginNetworkCreatorTable[] = {
+  emberCommandEntryActionWithDetails("form", emberAfPluginNetworkCreatorFormCommand, "uvsu", "Form a network with specified parameters.", pluginNetworkCreatorFormCommandArguments),
+  emberCommandEntrySubMenu("mask", emberCommandPluginNetworkCreatorMaskTable, ""),
+  emberCommandEntryActionWithDetails("start", emberAfPluginNetworkCreatorStartCommand, "u", "Starts the network formation process.", pluginNetworkCreatorStartCommandArguments),
+  emberCommandEntryActionWithDetails("status", emberAfPluginNetworkCreatorStatusCommand, "", "Print the status of the network-creator plugin.", NULL),
+  emberCommandEntryActionWithDetails("stop", emberAfPluginNetworkCreatorStop, "", "Stops the network formation process.", NULL),
+  emberCommandEntryTerminator(),
+};
+void emAfPluginNetworkCreatorSecurityClearJoiningLinkKeyCommand(void);
+void emAfPluginNetworkCreatorSecurityOpenOrCloseNetworkCommand(void);
+void emAfPluginNetworkCreatorSecurityOpenOrCloseNetworkCommand(void);
+void emAfPluginNetworkCreatorSecurityOpenNetworkWithKeyCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorSecurityOpenWithKeyCommandArguments[] = {
+  "The EUI64 of the joining device.",
+  "The link key that the joining device will use to enter the network.",
+  NULL
+};
+#endif
+
+
+void emAfPluginNetworkCreatorSecurityConfigureDistributedKey(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorSecuritySetDistributedKeyCommandArguments[] = {
+  "The preconfigured distributed key that the joining device will use to  ...",
+  NULL
+};
+#endif
+
+
+void emAfPluginNetworkCreatorSecuritySetJoiningLinkKeyCommand(void);
+#if defined(EMBER_COMMAND_INTEPRETER_HAS_DESCRIPTION_FIELD)
+static const char * const pluginNetworkCreatorSecuritySetJoiningLinkKeyCommandArguments[] = {
+  "The EUI64 of the joining device.",
+  "The link key that the joining device will use to enter the network.",
+  NULL
+};
+#endif
+
+
+static EmberCommandEntry emberCommandPluginNetworkCreatorSecurityTable[] = {
+  emberCommandEntryActionWithDetails("clear-joining-link-keys", emAfPluginNetworkCreatorSecurityClearJoiningLinkKeyCommand, "", "Clear all of the joining link keys stored in the stack.", NULL),
+  emberCommandEntryActionWithDetails("close-network", emAfPluginNetworkCreatorSecurityOpenOrCloseNetworkCommand, "", "Close the network for joining.", NULL),
+  emberCommandEntryActionWithDetails("open-network", emAfPluginNetworkCreatorSecurityOpenOrCloseNetworkCommand, "", "Open the network for joining.", NULL),
+  emberCommandEntryActionWithDetails("open-with-key", emAfPluginNetworkCreatorSecurityOpenNetworkWithKeyCommand, "bb", "Open the network that would only allow the node with specified EUI and ...", pluginNetworkCreatorSecurityOpenWithKeyCommandArguments),
+  emberCommandEntryActionWithDetails("set-distributed-key", emAfPluginNetworkCreatorSecurityConfigureDistributedKey, "b", "Set the TC Link key for a distributed network", pluginNetworkCreatorSecuritySetDistributedKeyCommandArguments),
+  emberCommandEntryActionWithDetails("set-joining-link-key", emAfPluginNetworkCreatorSecuritySetJoiningLinkKeyCommand, "bb", "Set the link key that a specific joining device will use when joining  ...", pluginNetworkCreatorSecuritySetJoiningLinkKeyCommandArguments),
   emberCommandEntryTerminator(),
 };
 void emberAfPluginNetworkSteeringChannelAddOrSubtractCommand(void);
@@ -885,13 +1025,17 @@ static EmberCommandEntry emberCommandPluginZllCommissioningTable[] = {
   emberCommandEntryTerminator(),
 };
 static EmberCommandEntry emberCommandPluginTable[] = {
+  emberCommandEntrySubMenu("concentrator", emberCommandPluginConcentratorTable, ""),
   emberCommandEntrySubMenu("counter", emberCommandPluginCounterTable, ""),
   emberCommandEntrySubMenu("counters", emberCommandPluginCountersTable, ""),
   emberCommandEntrySubMenu("find-and-bind", emberCommandPluginFindAndBindTable, ""),
   emberCommandEntrySubMenu("green-power-client", emberCommandPluginGreenPowerClientTable, ""),
   emberCommandEntrySubMenu("groups-server", emberCommandPluginGroupsServerTable, ""),
+  emberCommandEntrySubMenu("ias-zone-client", emberCommandPluginIasZoneClientTable, ""),
   emberCommandEntrySubMenu("identify", emberCommandPluginIdentifyTable, ""),
   emberCommandEntrySubMenu("interpan", emberCommandPluginInterpanTable, ""),
+  emberCommandEntrySubMenu("network-creator", emberCommandPluginNetworkCreatorTable, ""),
+  emberCommandEntrySubMenu("network-creator-security", emberCommandPluginNetworkCreatorSecurityTable, ""),
   emberCommandEntrySubMenu("network-steering", emberCommandPluginNetworkSteeringTable, ""),
   emberCommandEntrySubMenu("reporting", emberCommandPluginReportingTable, ""),
   emberCommandEntrySubMenu("scenes", emberCommandPluginScenesTable, ""),
